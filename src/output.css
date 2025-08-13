@@ -1130,6 +1130,9 @@
       transform-origin: left;
     }
   }
+  .start-1 {
+    inset-inline-start: calc(var(--spacing) * 1);
+  }
   .dropdown-left {
     --anchor-h: left;
     --anchor-v: span-bottom;
@@ -1256,6 +1259,11 @@
   }
   .z-100 {
     z-index: 100;
+  }
+  .drawer-content {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    min-width: calc(0.25rem * 0);
   }
   .m-1 {
     margin: calc(var(--spacing) * 1);
@@ -1423,6 +1431,12 @@
   .table {
     display: table;
   }
+  .w-3 {
+    width: calc(var(--spacing) * 3);
+  }
+  .w-4 {
+    width: calc(var(--spacing) * 4);
+  }
   .w-5 {
     width: calc(var(--spacing) * 5);
   }
@@ -1530,6 +1544,12 @@
   .items-center {
     align-items: center;
   }
+  .justify-around {
+    justify-content: space-around;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
   .justify-end {
     justify-content: flex-end;
   }
@@ -1604,6 +1624,9 @@
   .p-4 {
     padding: calc(var(--spacing) * 4);
   }
+  .p-5 {
+    padding: calc(var(--spacing) * 5);
+  }
   .p-7 {
     padding: calc(var(--spacing) * 7);
   }
@@ -1620,6 +1643,18 @@
   }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
+  }
+  .py-5 {
+    padding-block: calc(var(--spacing) * 5);
+  }
+  .py-10 {
+    padding-block: calc(var(--spacing) * 10);
+  }
+  .py-15 {
+    padding-block: calc(var(--spacing) * 15);
+  }
+  .py-20 {
+    padding-block: calc(var(--spacing) * 20);
   }
   .text-center {
     text-align: center;
@@ -1652,6 +1687,10 @@
   .text-xl {
     font-size: var(--text-xl);
     line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .text-xs {
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
   }
   .font-black {
     --tw-font-weight: var(--font-weight-black);
@@ -1806,6 +1845,11 @@
     @media (width >= 40rem) {
       font-size: var(--text-xl);
       line-height: var(--tw-leading, var(--text-xl--line-height));
+    }
+  }
+  .md\:w-7 {
+    @media (width >= 48rem) {
+      width: calc(var(--spacing) * 7);
     }
   }
   .lg\:mb-5 {
