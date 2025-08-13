@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="coffee">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anugerah</title>
+    <link href="src/output.css" rel="stylesheet">
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+</head>
+<body>
+    <nav class="navbar p-7 sm:p-10 mx-auto border-b-1">
+        <div class="justify-items-center navbar-start gap-2">
+            <h1 class="italic text-2xl font-mono font-black">
+                Anugerah
+            </h1>
+        </div>
+        <div class="navbar-end gap-2 sm:gap-5 font-mono">
+            <a href="#about" class="badge badge-primary badge-xs sm:badge-lg hidden sm:block"> About me</a>
+            <a href="" class="badge badge-primary badge-xs sm:badge-lg hidden sm:block">Blog</a>
+            <a href="" class="badge badge-primary badge-xs sm:badge-lg hidden sm:block">Shop</a>
+            <details class="dropdown block sm:hidden">
+                <summary class="btn m-1 btn-primary rounded-full text-center">
+                    <svg class="w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path fill="none" stroke="#261B25" stroke-linecap="round" stroke-linejoin="round" d="M3 6.001h18m-18 6h18m-18 6h18" stroke-width="1" />
+                    </svg>
+                </summary>
+                <ul class="gap-2 content-center items-center menu dropdown-content bg-base-100 rounded-box w-full z-1  p-2 shadow-sm">
+                    <li><a href="" class="badge badge-primary badge-lg">Design</a></li>
+                    <li><a href="" class="badge badge-primary badge-lg">Videos</a></li>
+                    <li><a href="" class="badge badge-primary badge-lg">Music</a></li>
+                    <li><a href="" class="badge badge-primary badge-lg">Shop</a></li>
+                    <li><a href="" class="badge badge-primary badge-lg">Blog</a></li>
+                </ul>
+            </details>
+        </div>
+    </nav>
+
+     <div class="block lg:hidden rounded-full dropdown dropdown-top dropdown-center items-center  z-100 fixed bottom-4   px-4 py-2  gap-6">
+        <div tabindex="0" role="button" class="rounded-2xl btn m-1 btn-primary shadow-lg">
+            Filter
+        </div>
+        <ul id="filter" tabindex="0" class="items-center text-black dropdown-content menu bg-primary rounded-box z-1 w-52 p-2 shadow-sm">
+            <li><a href="#" data-tag="all" class="text-sm font-medium hover:text-secondary">All</a></li>
+            <li><a href="#" data-tag="poster" class="text-sm font-medium hover:text-secondary">Poster</a></li>
+            <li><a href="#" data-tag="branding" class="text-sm font-medium hover:text-secondary">Branding</a></li>
+            <li><a href="#" data-tag="website" class="text-sm font-medium hover:text-secondary">Website</a></li>
+            <li><a href="#" data-tag="3d" class="text-sm font-medium hover:text-secondary">3D</a></li>
+            <li><a href="#" data-tag="product" class="text-sm font-medium hover:text-secondary">Product</a></li>
+        </ul>
+    </div>
+    
+    <nav id="filter" class="lg:flex gap-6 hidden items-center text-black z-100 fixed bottom-4 left-1/2 -translate-x-1/2 bg-primary shadow-lg  rounded-full px-4 py-2 ">
+        <div class="font-bold badge">
+            Filter
+        </div>
+        <a href="#" data-tag="all" class="text-sm font-medium hover:text-secondary">All</a>
+        <a href="#" data-tag="poster" class="text-sm font-medium hover:text-secondary">Poster</a>
+        <a href="#" data-tag="branding" class="text-sm font-medium hover:text-secondary">Branding</a>
+        <a href="#" data-tag="website" class="text-sm font-medium hover:text-secondary">Website</a>
+        <a href="#" data-tag="3d" class="text-sm font-medium hover:text-secondary">3D</a>
+        <a href="#" data-tag="product" class="text-sm font-medium hover:text-secondary">Product</a>
+  </nav>
+
+    <div id="masonry" class="columns-2 sm:columns-2 lg:columns-4 gap-4 p-4">
+        
+    </div>
+
+
+    <div id="about" class="flex mx-auto p-10 px-auto xl:px-75 w-full lg:mb-15">
+        <main class="">
+            <a href="src/CV - Anugerah_05.pdf" class=" badge border-2 border-neutral border-dashed badge-primary font-bold -rotate-5">Download Resume</a>
+            <div class="flex">
+                <h1 class="font-black mb-3 text-3xl lg:text-4xl underline-offset-7 underline decoration-wavy">
+                    About Me
+                </h1>
+            </div>
+            <p class="text-justify text-sm sm:text-lg font-mono">
+                Passionate graphic designer and video editor with 7+ years of experience creating visually compelling content that resonates with audiences. From designing Instagram posters that attract hundreds of engagements to producing videos with over 8,000 views, I thrive on turning creative ideas into impactful visuals.
+            </p>
+            <ul class=" flex flex-wrap text-xl gap-3 lg:gap-5 font-mono font-black mt-5">
+                <li class="badge badge-xs lg:badge-sm badge-primary">Graphic Designer</li>
+                <li class="badge badge-xs lg:badge-sm badge-primary">3D Artist</li>
+                <li class="badge badge-xs lg:badge-sm badge-primary">Front-end Developer</li>
+                <li class="badge badge-xs lg:badge-sm badge-primary">Video Editor</li>
+                <li class="badge badge-xs lg:badge-sm badge-primary">Content Writer</li>
+            </ul>
+            <div class="grid grid-cols-2 gap-10 lg:gap-5">
+                <div class="mt-5">
+                    <h1 class="lg:text-xl text-lg font-black mb-3 lg:mb-5">Technical Skills</h1>
+                    <ul class="lg:flex grid grid-cols-2 gap-2">
+                        <li>
+                            <svg class="w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path fill="#DB924C" fill-rule="evenodd" d="M5 1a4 4 0 0 0-4 4v14a4 4 0 0 0 4 4h14a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4zm.5 6H9a3.5 3.5 0 1 1 0 7H7.5v3h-2zm2 5H9a1.5 1.5 0 0 0 0-3H7.5zm10.425-.366c-.857-.193-1.765-.345-2.423-.296c-.333.024-.758.128-.33.472c.353.282.77.459 1.188.635c.43.182.862.365 1.228.666c.511.42.912 1.032.912 1.889c0 .855-.404 1.51-1.048 1.9c-.569.344-1.256.442-1.851.457c-.962.024-2.022-.168-2.812-.362v-2.068c.728.208 1.858.453 2.762.43c.47-.011.747-.097.873-.173c.2-.12.018-.426-.105-.527c-.352-.29-.775-.468-1.2-.647c-.42-.177-.842-.355-1.198-.64c-.51-.41-.921-1.015-.921-1.87c0-.695.29-1.28.82-1.665c.472-.34 1.044-.456 1.533-.492c.825-.061 1.777.082 2.572.245z" clip-rule="evenodd" />
+                            </svg>
+                        </li>
+                        <li>
+                            <svg class="w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path fill="#DB924C" fill-rule="evenodd" d="M5 1a4 4 0 0 0-4 4v14a4 4 0 0 0 4 4h14a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4zm11.448 7.672a1 1 0 1 0 0-2a1 1 0 0 0 0 2m1 8.3V9.749h-2v7.223zm-12.572 0L8.07 7.844v-.66h2.551l3.534 9.788h-2.192l-.832-2.287H7.673l-.775 2.287zm3.345-4.233h2.343L9.393 8.922z" clip-rule="evenodd" />
+                            </svg>
+                        </li>
+                        <li>
+                            <svg class="w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path fill="#DB924C" fill-rule="evenodd" d="M5 1a4 4 0 0 0-4 4v14a4 4 0 0 0 4 4h14a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4zm10 5.5h2v9.79c-.565.196-1.954.59-2.988.59c-1.292 0-3.582-.665-3.582-3.766c0-2.687 2.237-3.7 4.57-3.7zm0 4.624v4c-.83 0-2.5-.213-2.5-2s1.67-2 2.5-2M9 7.5H7v9h2z" clip-rule="evenodd" />
+                            </svg>
+                        </li>
+                        <li>
+                            <svg class="w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path fill="#DB924C" d="M449.5 177.293L289.101 54.105c-10.506-8.067-28.159-8.031-39.695.043c-11.681 8.158-13.028 21.682-2.647 30.21l66.707 54.286H109.794c-16.813.007-32.975 11.265-36.164 25.214c-3.297 14.202 8.115 25.848 25.596 25.902h103.08L17.632 331.506C.277 344.786-5.324 366.893 5.607 380.87c11.085 14.228 34.682 14.256 52.217.08l100.405-82.166s-1.473 11.084-1.356 17.742c3.019 56.204 45.868 108.306 98.923 131.381c91.42 40.492 214.849 3.424 249.557-102.103c16.506-55.355 3.852-121.18-55.854-168.51M279.463 373.509c-72.203-37.792-72.204-132.787 0-170.58s162.948 9.705 162.948 85.29s-90.744 123.083-162.948 85.29m21.989-34.01c-46.055-24.087-46.055-84.633 0-108.72s103.935 6.185 103.935 54.36s-57.881 78.448-103.935 54.36" />
+                            </svg>
+                        </li>
+                        <li>
+                            <svg class="w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path fill="#DB924C" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12s12-5.373 12-12S18.627 0 12 0M6.962 7.68c.754 0 1.337.549 1.405 1.2c.069.583-.171 1.097-.822 1.406c-.343.171-.48.172-.549.069c-.034-.069 0-.137.069-.206c.617-.514.617-.926.548-1.508c-.034-.378-.308-.618-.583-.618c-1.2 0-2.914 2.674-2.674 4.629c.103.754.549 1.646 1.509 1.646c.308 0 .65-.103.96-.24c.5-.264.799-.47 1.097-.8c-.073-.885.704-2.046 1.851-2.046c.515 0 .926.205.96.583c.068.514-.377.582-.514.582s-.378-.034-.378-.17c-.034-.138.309-.07.275-.378c-.035-.206-.24-.274-.446-.274c-.72 0-1.131.994-1.029 1.611c.035.275.172.549.447.549c.205 0 .514-.31.617-.755c.068-.308.343-.514.583-.514c.102 0 .17.034.205.171v.138c-.034.137-.137.548-.102.651c0 .069.034.171.17.171c.092 0 .436-.18.777-.459c.117-.59.253-1.298.253-1.357c.034-.24.137-.48.617-.48c.103 0 .171.034.205.171v.138l-.136.617c.445-.583 1.097-.994 1.508-.994c.172 0 .309.102.309.274c0 .103 0 .274-.069.446c-.137.377-.309.96-.412 1.474c0 .137.035.274.207.274s.685-.206 1.096-.754l.007-.004c-.002-.068-.007-.134-.007-.202c0-.411.035-.754.104-.994c.068-.274.411-.514.617-.514c.103 0 .205.069.205.171c0 .035 0 .103-.034.137c-.137.446-.24.857-.24 1.269c0 .24.034.582.102.788c0 .034.035.069.07.069c.068 0 .548-.445.89-1.028c-.308-.206-.48-.549-.48-.96c0-.72.446-1.097.858-1.097c.343 0 .617.24.617.72c0 .308-.103.65-.274.96h.102a.77.77 0 0 0 .584-.24a.3.3 0 0 1 .134-.117c.335-.425.83-.74 1.41-.74c.48 0 .924.205.959.582c.068.515-.378.618-.515.618l-.002-.002c-.138 0-.377-.035-.377-.172s.309-.068.274-.376c-.034-.206-.24-.275-.446-.275c-.686 0-1.13.891-1.028 1.611c.034.275.171.583.445.583c.206 0 .515-.308.652-.754c.068-.274.343-.514.583-.514c.103 0 .17.034.205.171c0 .069 0 .206-.137.652c-.17.308-.171.48-.137.617c.034.274.171.48.309.583c.034.034.068.102.068.102c0 .069-.034.138-.137.138c-.034 0-.068 0-.103-.035c-.514-.205-.72-.548-.789-.891c-.205.24-.445.377-.72.377c-.445 0-.89-.411-.96-.926a1.6 1.6 0 0 1 .075-.649c-.203.13-.422.203-.623.203h-.17c-.447.652-.927 1.098-1.27 1.303a.9.9 0 0 1-.377.104c-.068 0-.171-.035-.205-.104c-.095-.152-.156-.392-.193-.667c-.481.527-1.145.805-1.453.805c-.343 0-.548-.206-.582-.55v-.376c.102-.754.377-1.2.377-1.337a.074.074 0 0 0-.069-.07c-.24 0-1.028.824-1.166 1.373l-.103.445c-.068.309-.377.515-.582.515c-.103 0-.172-.035-.206-.172v-.137l.046-.233c-.435.31-.87.508-1.075.508c-.308 0-.48-.172-.514-.412c-.206.274-.445.412-.754.412c-.352 0-.696-.24-.862-.593c-.244.275-.523.553-.852.764c-.48.309-1.028.549-1.68.549c-.582 0-1.097-.309-1.371-.583c-.412-.377-.651-.96-.686-1.509c-.205-1.68.823-3.84 2.4-4.8c.378-.205.755-.343 1.132-.343m9.77 3.291c-.104 0-.172.172-.172.343c0 .274.137.583.309.755a1.7 1.7 0 0 0 .102-.583c0-.343-.137-.515-.24-.515z" />
+                            </svg>
+                        </li>
+                        <li>
+                            <svg class="w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path fill="#DB924C" d="M8.5 2a3 3 0 0 0 0 6h7a3 3 0 1 0 0-6zm7 7a3 3 0 1 0 0 6a3 3 0 0 0 0-6m-10 3a3 3 0 0 1 3-3h3v6h-3a3 3 0 0 1-3-3m3 4a3 3 0 1 0 3 3v-3z" />
+                            </svg>
+                        </li>
+                        <li>
+                            <svg class="w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path fill="none" stroke="#DB924C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.998 12L2 16c0 1.886 0 2.328.586 2.914S4.114 19.5 6 19.5h8c1.886 0 2.828 0 3.414-.586S18 17.886 18 16m-8.002-4l11.998-6M9.998 12L2 8c0-1.386 0-2.328.586-2.914S4.114 4.5 6 4.5h8c1.886 0 2.828 0 3.414.586S18 6.614 18 8m-8.002 4l11.998 6" />
+                            </svg>
+                        </li>
+                        <li>
+                            <svg class="w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path fill="#DB924C" d="M17.621 0L5.977.004c-1.37 0-2.756.345-3.762 1.11a4.9 4.9 0 0 0-1.61 2.003C.233 3.93 0 5.02 0 5.951l.012 12.2c.002 1.604.479 3.057 1.461 4.112c.984 1.056 2.462 1.683 4.331 1.691L16.856 24c1.26.005 3.095-.036 4.303-.714c1.075-.605 2.025-1.556 2.497-2.984c.278-.84.345-2.084.344-3.147l-.021-11.13c-.002-.888-.15-2.023-.547-2.934c-.425-.976-1.181-1.815-2.322-2.425C20.353.26 19.123 0 17.622 0zm0 .93c1.378 0 2.538.295 3.04.565c.977.523 1.544 1.166 1.889 1.96c.315.721.47 1.793.473 2.572l.018 11.13c.002 1.013-.097 2.257-.298 2.86c-.396 1.202-1.146 1.946-2.063 2.462c-.814.457-2.612.593-3.82.588l-11.05-.044c-1.657-.007-2.832-.534-3.626-1.386c-.792-.851-1.212-2.06-1.212-3.485L.999 5.95c0-.829.196-1.827.474-2.437c.345-.757.75-1.207 1.365-1.674C3.585 1.27 4.868.97 6.08.97zm-5.66 3.423c-1.976.089-3.204 1.658-3.214 3.29c.019 1.443 1.635 3.481 2.884 4.53c.12.099.154.109.33.18c.062.025.198-.047.327-.135c.36-.245.993-.947 1.648-1.738a7.7 7.7 0 0 0 1.031-1.683c.409-.89.261-1.599.235-1.888a4 4 0 0 0-.99-1.692a3.36 3.36 0 0 0-2.251-.864m4.172 7.922a10.2 10.2 0 0 0-3.244.61c-.15.058-.26.1-.374.17c-.057.036-.11.135-.105.292c.017.433.29 1.278.624 2.27c.384 1.135 1.066 2.27 1.844 2.74a3.23 3.23 0 0 0 2.53.342c.832-.243 1.595-.868 1.962-1.546c.986-1.818.19-3.548-1.121-4.417c-.447-.296-1.133-.445-1.89-.46zm-8.432.038a6 6 0 0 0-.752.047c-.596.078-.932.273-1.29.51a3.18 3.18 0 0 0-1.365 1.979c-.075.552-.086 1.053.033 1.507c.433 1.389 1.326 2.222 2.847 2.452c.636.028 1.37-.063 1.99-.45c1.269-.782 2.08-3.17 2.412-4.742c.053-.176.035-.357-.013-.42c-.005-.067-.044-.113-.19-.183c-.398-.192-1.32-.417-2.375-.6a7.7 7.7 0 0 0-1.297-.1" />
+                            </svg>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mt-5 place-items-end text-right">
+                    <h1 class="text-lg sm:text-xl font-black mb-3 sm:mb-5">Language Proficiency</h1>
+                    <ul class="text-xl flex-wrap gap-2">
+                        <li>Bahasa Indonesia: <b>Native</b></li>
+                        <li>English: <b>Professional</b></li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="flex justify-end p-10 border-t-1">
+        <ul class="flex gap-2">
+            <li>
+                <a href="https://dribbble.com/Nugehood">
+                <svg class="w-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill="#DB924C" fill-rule="evenodd" d="M5 1a4 4 0 0 0-4 4v14a4 4 0 0 0 4 4h14a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4zm14.421 12.097a7.5 7.5 0 0 1-3.45 5.268c-.415-1.976-.946-3.827-1.627-5.593c1.397-.182 3.04-.078 5.077.325m-12.15 4.724c1.99-2.717 3.739-4.27 6.074-4.86c.725 1.85 1.28 3.795 1.705 5.893A7.5 7.5 0 0 1 12 19.5a7.47 7.47 0 0 1-4.73-1.68Zm12.23-5.727c-2.166-.42-3.967-.523-5.543-.276q-.315-.742-.668-1.466c1.826-.682 3.248-1.678 4.499-3.122a7.47 7.47 0 0 1 1.711 4.864Zm-6.54-.066a29 29 0 0 0-.628-1.357c-2.053.606-4.578.894-7.827 1.044a7.47 7.47 0 0 0 2.028 5.42c1.983-2.689 3.863-4.416 6.426-5.107Zm4.138-5.53c-1.183 1.39-2.513 2.32-4.265 2.956a32 32 0 0 0-3.01-4.633a7.5 7.5 0 0 1 2.177-.321c1.968 0 3.76.758 5.098 1.999Zm-5.233 3.267a31 31 0 0 0-3.02-4.571a7.51 7.51 0 0 0-4.234 5.515c3.054-.147 5.383-.418 7.254-.944" clip-rule="evenodd" />
+                </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/brief.look/">
+                    <svg class="w-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14">
+                        <path fill="#DB924C" fill-rule="evenodd" d="M3.39.787A2.604 2.604 0 0 0 .786 3.39v6.944a2.604 2.604 0 0 0 2.604 2.604h6.944a2.604 2.604 0 0 0 2.603-2.604V3.39A2.604 2.604 0 0 0 10.334.787zm7.693 2.607a.75.75 0 1 1-1.5 0a.75.75 0 0 1 1.5 0m-4.22 1.388a2.08 2.08 0 1 0 0 4.16a2.08 2.08 0 0 0 0-4.16m-3.081 2.08a3.08 3.08 0 1 1 6.16 0a3.08 3.08 0 0 1-6.16 0" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/anugerah-maulana/">
+                    <svg class="w-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path fill="#DB924C" fill-rule="evenodd" d="M5 1a4 4 0 0 0-4 4v14a4 4 0 0 0 4 4h14a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4zm1.205 6.91a1.705 1.705 0 1 0 0-3.41a1.705 1.705 0 0 0 0 3.41M7.909 19.5V9.273H4.5V19.5h3.41Zm4.432-10.227H9.273V19.5h3.068v-6.17c.395-.642 1.077-1.33 2.045-1.33c1.364 0 1.705 1.364 1.705 2.046V19.5H19.5v-5.454c0-1.828-.797-4.773-3.75-4.773c-1.878 0-2.92.685-3.41 1.327z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="mailto:nugehood@proton.me">
+                    <svg class="w-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14">
+                        <path fill="#DB924C" fill-rule="evenodd" d="M0 2.75a1.5 1.5 0 0 1 1.5-1.5h11a1.5 1.5 0 0 1 1.5 1.5v.342L7.383 7.504A.7.7 0 0 1 7 7.607a.7.7 0 0 1-.383-.103L0 3.092zm0 1.844v6.656a1.5 1.5 0 0 0 1.5 1.5h11a1.5 1.5 0 0 0 1.5-1.5V4.594L8.073 8.546l-.005.004A1.97 1.97 0 0 1 7 8.857c-.375 0-.753-.102-1.068-.307l-.005-.004z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </footer>
+
+    
+  <script>
+    const masonry = document.getElementById("masonry");
+    let allProjects = [];
+
+    // Load JSON
+    async function loadProjects() {
+      try {
+        const res = await fetch("projects.json");
+        allProjects = await res.json();
+        renderProjects(allProjects);
+      } catch (err) {
+        console.error("Error loading projects.json:", err);
+      }
+    }
+
+    // Render cards
+    function renderProjects(projects) {
+      masonry.innerHTML = projects.map(p => `
+        <div class="mb-4 break-inside-avoid  rounded-lg overflow-hidden shadow hover:shadow-lg transition-transform hover:scale-[1.02]">
+          <img src="${p.image}" alt="${p.title}" class="w-full">
+        </div>
+      `).join("");
+    }
+
+    // Filter
+    function filterByTag(tag) {
+      if (tag === "all") {
+        renderProjects(allProjects);
+      } else {
+        renderProjects(allProjects.filter(p => p.tags.includes(tag)));
+      }
+    }
+
+    // Event listeners
+    document.querySelectorAll("[data-tag]").forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        const tag = link.getAttribute("data-tag");
+        filterByTag(tag);
+      });
+    });
+
+    loadProjects();
+  </script>
+
+</body>
+</html>
