@@ -148,6 +148,11 @@
     "title": "Project Title",
     "tags": ["3d"],
     "image": "img/money_01.gif"
+  },
+  {
+    "title": "Project Title",
+    "tags": ["3d", "product"],
+    "image": "img/coffee_02.gif"
   }
   
 
