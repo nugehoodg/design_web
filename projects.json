@@ -153,6 +153,11 @@
     "title": "Project Title",
     "tags": ["3d", "product"],
     "image": "img/coffee_02.gif"
+  },
+  {
+    "title": "Project Title",
+    "tags": ["3d"],
+    "image": "img/breadshop.gif"
   }
   
 
