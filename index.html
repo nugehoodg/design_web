@@ -210,13 +210,23 @@
     }
 
     // Render cards
-    function renderProjects(projects) {
-      masonry.innerHTML = projects.map(p => `
-        <div class="mb-4 break-inside-avoid  rounded-lg overflow-hidden shadow hover:shadow-lg transition-transform hover:scale-[1.02]">
-          <img src="${p.image}" alt="${p.title}" class="w-full">
+  function renderProjects(projects) {
+    masonry.innerHTML = projects.map(p => {
+      // If project has video, autoplay/loop it
+      const media = p.video 
+        ? `<video autoplay muted loop playsinline class="w-full">
+             <source src="${p.video}" type="video/mp4">
+             Your browser does not support the video tag.
+           </video>`
+        : `<img src="${p.image}" alt="${p.title}" class="w-full">`;
+
+      return `
+        <div class="mb-4 break-inside-avoid rounded-lg overflow-hidden shadow hover:shadow-lg transition-transform hover:scale-[1.02]">
+          ${media}
         </div>
-      `).join("");
-    }
+      `;
+    }).join("");
+  }
 
     // Filter
     function filterByTag(tag) {

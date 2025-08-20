@@ -158,6 +158,11 @@
     "title": "Project Title",
     "tags": ["3d"],
     "image": "img/breadshop.gif"
+  },
+  {
+    "title": "Project Title",
+    "tags": ["3d", "product"],
+    "video": "videos/taila.mp4"
   }
   
 
