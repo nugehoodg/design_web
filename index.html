@@ -44,12 +44,12 @@
             Filter
         </div>
         <ul id="filter" tabindex="0" class="items-center text-black dropdown-content menu bg-primary rounded-box z-1  p-2 shadow-sm">
-            <li><a href="#" data-tag="all" class=" text-sm font-medium hover:text-secondary">All</a></li>
-            <li><a href="#" data-tag="poster" class="text-sm font-medium hover:text-secondary">Poster</a></li>
-            <li><a href="#" data-tag="branding" class="text-sm font-medium hover:text-secondary">Branding</a></li>
-            <li><a href="#" data-tag="website" class="text-sm font-medium hover:text-secondary">Website</a></li>
-            <li><a href="#" data-tag="3d" class=" text-sm font-medium hover:text-secondary">3D</a></li>
-            <li><a href="#" data-tag="product" class="text-sm font-medium hover:text-secondary">Product</a></li>
+            <li><a href="#" data-tag="all" class=" text-sm font-medium text-secondary-content">All</a></li>
+            <li><a href="#" data-tag="poster" class="text-sm font-medium text-secondary-content">Poster</a></li>
+            <li><a href="#" data-tag="branding" class="text-sm font-medium text-secondary-content">Branding</a></li>
+            <li><a href="#" data-tag="website" class="text-sm font-medium text-secondary-content">Website</a></li>
+            <li><a href="#" data-tag="3d" class=" text-sm font-medium text-secondary-content">3D</a></li>
+            <li><a href="#" data-tag="product" class="text-sm font-medium text-secondary-content">Product</a></li>
         </ul>
     </div>
     
@@ -57,12 +57,12 @@
         <div class="font-bold badge ">
             Filter
         </div>
-        <a href="#" data-tag="all" class="text-sm font-medium hover:text-secondary">All</a>
-        <a href="#" data-tag="poster" class="text-sm font-medium hover:text-secondary">Poster</a>
-        <a href="#" data-tag="branding" class="text-sm font-medium hover:text-secondary">Branding</a>
-        <a href="#" data-tag="website" class="text-sm font-medium hover:text-secondary">Website</a>
-        <a href="#" data-tag="3d" class="text-sm font-medium hover:text-secondary">3D</a>
-        <a href="#" data-tag="product" class="text-sm font-medium hover:text-secondary">Product</a>
+        <a href="#" data-tag="all" class="tag-link text-sm font-medium hover:text-secondary-content">All</a>
+        <a href="#" data-tag="poster" class="tag-link text-sm font-medium hover:text-secondary-content">Poster</a>
+        <a href="#" data-tag="branding" class="tag-link text-sm font-medium hover:text-secondary-content">Branding</a>
+        <a href="#" data-tag="website" class="tag-link text-sm font-medium hover:text-secondary-content">Website</a>
+        <a href="#" data-tag="3d" class="tag-link text-sm font-medium hover:text-secondary-content">3D</a>
+        <a href="#" data-tag="product" class="tag-link text-sm font-medium hover:text-secondary-content">Product</a>
   </nav>
 
     <div id="masonry" class="columns-2 sm:columns-2 lg:columns-4 gap-4 p-4">
@@ -196,6 +196,7 @@
     
   <script>
     const masonry = document.getElementById("masonry");
+      const filterLinks = document.querySelectorAll("[data-tag]");
     let allProjects = [];
 
     // Load JSON
@@ -228,23 +229,33 @@
     }).join("");
   }
 
-    // Filter
-    function filterByTag(tag) {
-      if (tag === "all") {
-        renderProjects(allProjects);
-      } else {
-        renderProjects(allProjects.filter(p => p.tags.includes(tag)));
-      }
+ // Filter
+  function filterByTag(tag) {
+    if (tag === "all") {
+      renderProjects(allProjects);
+    } else {
+      renderProjects(allProjects.filter(p => p.tags.includes(tag)));
     }
+  }
 
-    // Event listeners
-    document.querySelectorAll("[data-tag]").forEach(link => {
-      link.addEventListener("click", e => {
-        e.preventDefault();
-        const tag = link.getAttribute("data-tag");
-        filterByTag(tag);
-      });
+  // Event listeners
+  filterLinks.forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+
+      // Remove active class from all
+      filterLinks.forEach(l => l.classList.remove("badge"));
+      filterLinks.forEach(l => l.classList.add("text-black"));
+
+      // Add active class to clicked one
+      link.classList.remove("text-black");
+      link.classList.add("badge");
+
+      // Filter projects
+      const tag = link.getAttribute("data-tag");
+      filterByTag(tag);
     });
+  });
 
     loadProjects();
   </script>
