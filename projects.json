@@ -168,6 +168,11 @@
     "title": "Project Title",
     "tags": ["3d", "product"],
     "video": "videos/oinko.mp4"
+  },
+   {
+    "title": "Project Title",
+    "tags": ["poster"],
+    "image": "img/hotwind.webp"
   }
   
 
