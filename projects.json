@@ -173,6 +173,16 @@
     "title": "Project Title",
     "tags": ["poster"],
     "image": "img/hotwind.webp"
+  },
+     {
+    "title": "Project Title",
+    "tags": ["poster", "branding", "product"],
+    "image": "img/zura.webp"
+  },
+     {
+    "title": "Project Title",
+    "tags": ["poster", "3d", "product"],
+    "image": "videos/fishcannies.mp4"
   }
   
 
