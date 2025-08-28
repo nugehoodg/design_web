@@ -183,6 +183,11 @@
     "title": "Project Title",
     "tags": ["poster", "3d", "product"],
     "video": "videos/fishcannies.mp4"
+  },
+    {
+    "title": "Project Title",
+    "tags": ["branding"],
+    "image": "img/orange-navy.png"
   }
   
 
