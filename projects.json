@@ -203,6 +203,11 @@
     "title": "Project Title",
     "tags": ["branding"],
     "image": "img/yosef.webp"
+  },
+       {
+    "title": "Project Title",
+    "tags": ["3d", "product", "branding"],
+    "video": "videos/milkies.mp4"
   }
 
   
