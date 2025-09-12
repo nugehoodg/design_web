@@ -11,9 +11,8 @@
 </head>
 <body>
     <nav class="navbar p-7 sm:p-10 mx-auto border-b-1" hx-get="navbar.html" hx-trigger="load" hx-target="this"></nav>
-
-   <div class="" hx-get="filter.html" hx-trigger="load" hx-target="this"></div>
-
+    <nav hx-get="filter.html" hx-trigger="load" hx-target="this" id="filter" class="lg:flex gap-6 hidden items-center text-black z-100 fixed bottom-4 left-1/2 -translate-x-1/2 bg-primary shadow-lg  rounded-full px-4 py-2 "></nav>
+    <div hx-get="filter_mobile.html" hx-trigger="load" hx-target="this" class="block lg:hidden rounded-full dropdown dropdown-top dropdown-center items-center  z-100 fixed bottom-4 px-4 py-5  gap-6"></div>
     <div id="masonry" class="columns-2 sm:columns-2 lg:columns-4 gap-4 p-4">
         
     </div>
