@@ -7,3 +7,33 @@
         <a href="#" data-tag="website" class="tag-link text-sm font-medium hover:text-secondary-content">Website</a>
         <a href="#" data-tag="3d" class="tag-link text-sm font-medium hover:text-secondary-content">3D</a>
         <a href="#" data-tag="product" class="tag-link text-sm font-medium hover:text-secondary-content">Product</a>
+
+        <script>
+             // Filter
+  function filterByTag(tag) {
+    if (tag === "all") {
+      renderProjects(allProjects);
+    } else {
+      renderProjects(allProjects.filter(p => p.tags.includes(tag)));
+    }
+  }
+
+  // Event listeners
+  filterLinks.forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+
+      // Remove active class from all
+      filterLinks.forEach(l => l.classList.remove("badge"));
+      filterLinks.forEach(l => l.classList.add("text-black"));
+
+      // Add active class to clicked one
+      link.classList.remove("text-black");
+      link.classList.add("badge");
+
+      // Filter projects
+      const tag = link.getAttribute("data-tag");
+      filterByTag(tag);
+    });
+  });
+        </script>
