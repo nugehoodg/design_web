@@ -208,6 +208,11 @@
     "title": "Project Title",
     "tags": ["3d", "product", "branding"],
     "video": "videos/milkies.mp4"
+  },
+         {
+    "title": "Project Title",
+    "tags": ["3d", "product"],
+    "video": "videos/vending_01.mp4"
   }
 
   
