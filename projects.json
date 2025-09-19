@@ -213,6 +213,11 @@
     "title": "Project Title",
     "tags": ["3d", "product"],
     "video": "videos/vending_01.mp4"
+  },
+    {
+    "title": "Project Title",
+    "tags": ["poster", "product"],
+    "image": "img/visioncreationnewsun.webp"
   }
 
   
