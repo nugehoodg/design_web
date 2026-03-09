@@ -75,16 +75,23 @@
     "tags": ["website"],
     "image": "img/Mockup_01.gif"
   },
+      {
+    "title": "Project Title",
+    "tags": ["poster"],
+    "image": "img/army3.webp"
+  },
     {
     "title": "Project Title",
     "tags": ["poster", "branding"],
     "image": "img/Anugerah_static_ad.webp"
   },
+  
   {
     "title": "Project Title",
     "tags": ["poster"],
     "image": "img/poster_01.webp"
   },
+
   {
     "title": "Project Title",
     "tags": ["branding", "product"],
