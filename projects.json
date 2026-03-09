@@ -1,4 +1,9 @@
 [
+    {
+    "title": "Project Title",
+    "tags": ["3d", "product"],
+    "video": "videos/oinko.mp4"
+  },
   {
     "title": "Project Title",
     "tags": ["product"],
@@ -64,15 +69,16 @@
     "tags": ["branding"],
     "image": "img/logo_02.webp"
   },
-  {
-    "title": "Project Title",
-    "tags": ["branding", "poster"],
-    "image": "img/mnm.webp"
-  },
+
   {
     "title": "Project Title",
     "tags": ["website"],
     "image": "img/Mockup_01.gif"
+  },
+    {
+    "title": "Project Title",
+    "tags": ["poster", "branding"],
+    "image": "img/Anugerah_static_ad.webp"
   },
   {
     "title": "Project Title",
@@ -109,16 +115,9 @@
     "tags": ["poster"],
     "image": "img/jihadis.webp"
   },
-  {
-    "title": "Project Title",
-    "tags": ["poster"],
-    "image": "img/backandforth.webp"
-  },
-  {
-    "title": "Project Title",
-    "tags": ["poster", "branding"],
-    "image": "img/Anugerah_static_ad.webp"
-  },
+
+
+
   {
     "title": "Project Title",
     "tags": ["poster", "branding", "product"],
@@ -128,6 +127,11 @@
     "title": "Project Title",
     "tags": ["poster"],
     "image": "img/auteur.webp"
+  },
+      {
+    "title": "Project Title",
+    "tags": ["poster"],
+    "image": "img/backandforth.webp"
   },
   {
     "title": "Project Title",
@@ -159,15 +163,21 @@
     "tags": ["3d"],
     "image": "img/breadshop.gif"
   },
+
+       {
+    "title": "Project Title",
+    "tags": ["poster", "branding"],
+    "image": "img/koe2.webp"
+  },
   {
     "title": "Project Title",
     "tags": ["3d", "product"],
     "video": "videos/taila.mp4"
   },
-  {
+      {
     "title": "Project Title",
-    "tags": ["3d", "product"],
-    "video": "videos/oinko.mp4"
+    "tags": ["branding", "poster"],
+    "image": "img/mnm.webp"
   },
    {
     "title": "Project Title",
@@ -184,11 +194,7 @@
     "tags": ["poster", "3d", "product"],
     "video": "videos/fishcannies.mp4"
   },
-    {
-    "title": "Project Title",
-    "tags": ["branding"],
-    "image": "img/orange-navy.png"
-  },
+  
       {
     "title": "Project Title",
     "tags": ["branding", "website", "product"],
@@ -209,6 +215,12 @@
     "tags": ["3d", "product", "branding"],
     "video": "videos/milkies.mp4"
   },
+  
+      {
+    "title": "Project Title",
+    "tags": ["poster", "product"],
+    "image": "img/koe3.webp"
+  },
       {
     "title": "Project Title",
     "tags": ["poster"],
@@ -223,7 +235,14 @@
     "title": "Project Title",
     "tags": ["poster", "product"],
     "image": "img/visioncreationnewsun.webp"
+  },
+      {
+    "title": "Project Title",
+    "tags": ["poster", "product", "branding"],
+    "image": "img/koe1.webp"
   }
+
+
 
   
 
