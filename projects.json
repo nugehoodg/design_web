@@ -1,5 +1,5 @@
 [
-    {
+  {
     "title": "Project Title",
     "tags": ["3d", "product"],
     "video": "videos/oinko.mp4"
@@ -59,10 +59,21 @@
     "tags": ["3d"],
     "image": "img/redrum.gif"
   },
+  
+
+
+
+
   {
     "title": "Project Title",
     "tags": ["poster"],
     "image": "img/libre_01.webp"
+  },
+    
+  {
+    "title": "Project Title",
+    "tags": ["app"],
+    "image": "img/app_01.webp"
   },
   {
     "title": "Project Title",
@@ -117,12 +128,21 @@
     "tags": ["branding", "website"],
     "image": "img/tech_solution.webp"
   },
+
+
+
+
+
+  {
+    "title": "Project Title",
+    "tags": ["app"],
+    "image": "img/app_02.webp"
+  },
   {
     "title": "Project Title",
     "tags": ["poster"],
     "image": "img/jihadis.webp"
   },
-
 
 
   {
