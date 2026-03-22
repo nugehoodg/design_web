@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-    themes: light --default, corporate, dark --prefersdark, coffee
+    themes: light --default, lofi, dark --prefersdark, coffee
 }
 @plugin "tailwindcss-motion";
 @plugin "@midudev/tailwind-animations";

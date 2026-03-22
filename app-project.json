@@ -1,16 +1,16 @@
 [
   {
-    "name": "WalkD",
-    "description": "A pedometer-based pet app that evolves based on your activity and screen time.",
-    "banner": "/img/app_01.webp",
+    "name": "Walkd.",
+    "description": "A walking app for the introvert.",
+    "banner": "/img/banner_01.webp",
     "tags": ["flutter", "android", "health", "pedometer"],
     "download": "https://github.com/nugehoodg/walkd_app/releases/latest"
   },
   {
     "name": "Swoo",
     "description": "Privacy Focused Period Tracker",
-    "banner": "/img/app_02.webp",
-    "tags": ["flutter", "productivity", "digital wellbeing"],
+    "banner": "/img/banner_02.webp",
+    "tags": ["flutter", "android", "health"],
     "download": "https://github.com/nugehoodg/Swoo/releases"
   }
 ]
