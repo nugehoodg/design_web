@@ -5,20 +5,17 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="icon" href="favicon.ico">
-
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <title>App Store</title>
-
-    <link href="src/output.css" rel="stylesheet">
-
-    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.7"></script>
+    <link href="../src/output.css" rel="stylesheet">
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.7/dist/htmx.min.js" integrity="sha384-ZBXiYtYQ6hJ2Y0ZNoYuI+Nq5MqWBr+chMrS/RkXpNzQCApHEhOt2aY8EJgqwHLkJ" crossorigin="anonymous"></script>
 
 </head>
 
 
 
-<nav class="navbar p-7 sm:p-10 mx-auto border-b-1" hx-get="navbar_01.html" hx-trigger="load" hx-target="this"></nav>
+<nav class="navbar p-7 sm:p-10 mx-auto border-b-1" hx-get="../navbar_01.html" hx-trigger="load" hx-target="this"></nav>
 
 
 
@@ -140,7 +137,7 @@
 
     async function loadApps() {
 
-        const response = await fetch("app-project.json")
+        const response = await fetch("../app-project.json")
 
         const apps = await response.json()
 
@@ -207,7 +204,7 @@
 
 </script>
 
-<footer class="flex justify-between p-5 border-t-1" hx-get="footer_01.html" hx-trigger="load" hx-target="this">
+<footer class="flex justify-between p-5 border-t-1" hx-get="../footer_01.html" hx-trigger="load" hx-target="this">
 </footer>
 
 </body>
