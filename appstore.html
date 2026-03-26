@@ -3,40 +3,56 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico">
 
-<title>App Store</title>
+    <title>App Store</title>
 
-<link href="src/output.css" rel="stylesheet">
+    <link href="src/output.css" rel="stylesheet">
 
-<script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.7"></script>
 
 </head>
 
 
 
-    <nav class="navbar p-7 sm:p-10 mx-auto border-b-1" hx-get="navbar_01.html" hx-trigger="load" hx-target="this"></nav>
+<nav class="navbar p-7 sm:p-10 mx-auto border-b-1" hx-get="navbar_01.html" hx-trigger="load" hx-target="this"></nav>
 
 
 
 
 <!-- page -->
 <div class="max-w-5xl mx-auto px-4 py-10">
-<div class="flex   items-start">
-
-
-    <h1 class="text-3xl font-bold text-gray-900 mb-8">
-    Apps
-    </h1>
+<div class="card border">
+    <div class="card-body">
+        <div class="card-title text-3xl font-black">🙏 Help Publish to Play Store</div>
+        <div class="card-content">
+            <p class="text-lg">
+                I want to keep my apps easy for the user to navigate. Because my apps require certain permissions, often times they will get a certain warning from Google, even though they are completely harmless.
+            </p>
+        </div>
+        <div class="card-actions place-content-end py-2">
+            <a target="_blank" href="https://saweria.co/anugerah" class="btn btn-warning">Saweria</a>
+            <a target="_blank" href="https://ko-fi.com/anugerah" class="btn btn-warning">Ko-fi</a>
+        </div>
+    </div>
 </div>
 
+    <div class="flex mt-4 items-start">
 
 
-<!-- cards -->
-<div id="app-container" class="flex flex-col gap-6"></div>
+
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">
+            Apps
+        </h1>
+    </div>
+
+
+
+    <!-- cards -->
+    <div id="app-container" class="flex flex-col gap-6"></div>
 
 
 
@@ -47,46 +63,44 @@
 <!-- template -->
 <template id="app-card-template">
 
-<div class="border border-gray-300 rounded-lg overflow-hidden bg-white">
+    <div class="border border-gray-300 rounded-lg overflow-hidden bg-white">
 
-<!-- banner -->
-<div class="w-full aspect-[3/1] bg-gray-100 overflow-hidden border-b border-gray-300">
-  <img class="w-full h-full object-cover">
-</div>
-
-
-
-<div class="p-5">
-
-<!-- title + button -->
-<div class="flex justify-between items-start gap-4">
-
-<h2 class="text-lg font-semibold text-gray-900"></h2>
-
-
-<a
-target="_blank"
-class="btn btn-success border border-gray-300 px-3 py-1.5 rounded-md text-sm ">
-
-Download
-
-</a>
-
-</div>
+        <!-- banner -->
+        <div class="w-full aspect-[3/1] bg-gray-100 overflow-hidden border-b border-gray-300">
+            <img class="w-full h-full object-cover">
+        </div>
 
 
 
-<!-- description -->
-<p class="text-gray-600 text-sm mt-2 mb-3"></p>
+        <div class="p-5">
+
+            <!-- title + button -->
+            <div class="flex justify-between items-start gap-4">
+
+                <h2 class="text-lg font-semibold text-gray-900"></h2>
+
+
+                <a target="_blank" class="btn btn-success border border-gray-300 px-3 py-1.5 rounded-md text-sm ">
+
+                    Download
+
+                </a>
+
+            </div>
 
 
 
-<!-- tags -->
-<div class="flex flex-wrap gap-2 text-xs"></div>
+            <!-- description -->
+            <p class="text-gray-600 text-sm mt-2 mb-3"></p>
 
-</div>
 
-</div>
+
+            <!-- tags -->
+            <div class="flex flex-wrap gap-2 text-xs"></div>
+
+        </div>
+
+    </div>
 
 </template>
 
@@ -94,76 +108,77 @@ Download
 
 <script>
 
-async function loadApps(){
+    async function loadApps() {
 
-const response = await fetch("app-project.json")
+        const response = await fetch("app-project.json")
 
-const apps = await response.json()
+        const apps = await response.json()
 
-const container = document.getElementById("app-container")
+        const container = document.getElementById("app-container")
 
-const template = document.getElementById("app-card-template")
-
-
-
-apps.forEach(app=>{
-
-const card = template.content.cloneNode(true)
+        const template = document.getElementById("app-card-template")
 
 
 
-card.querySelector("img").src = app.banner
+        apps.forEach(app => {
+
+            const card = template.content.cloneNode(true)
 
 
 
-card.querySelector("h2").textContent = app.name
+            card.querySelector("img").src = app.banner
 
 
 
-card.querySelector("p").textContent = app.description
+            card.querySelector("h2").textContent = app.name
 
 
 
-const tagContainer = card.querySelector(".flex-wrap")
+            card.querySelector("p").textContent = app.description
 
 
 
-app.tags.forEach(tag=>{
-
-const tagEl = document.createElement("span")
-
-tagEl.className =
-"px-2 py-1 rounded-full border border-gray-300 bg-gray-50 text-gray-700"
+            const tagContainer = card.querySelector(".flex-wrap")
 
 
 
-tagEl.textContent = tag
+            app.tags.forEach(tag => {
+
+                const tagEl = document.createElement("span")
+
+                tagEl.className =
+                    "px-2 py-1 rounded-full border border-gray-300 bg-gray-50 text-gray-700"
 
 
 
-tagContainer.appendChild(tagEl)
-
-})
+                tagEl.textContent = tag
 
 
 
-card.querySelector("a").href = app.download
+                tagContainer.appendChild(tagEl)
+
+            })
 
 
 
-container.appendChild(card)
-
-})
-
-}
+            card.querySelector("a").href = app.download
 
 
 
-loadApps()
+            container.appendChild(card)
+
+        })
+
+    }
+
+
+
+    loadApps()
 
 </script>
 
- <footer class="flex justify-between p-5 border-t-1" hx-get="footer_01.html" hx-trigger="load" hx-target="this"> </footer>
+<footer class="flex justify-between p-5 border-t-1" hx-get="footer_01.html" hx-trigger="load" hx-target="this">
+</footer>
 
 </body>
 
