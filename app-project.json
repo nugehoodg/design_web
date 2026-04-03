@@ -1,5 +1,12 @@
 [
   {
+    "name": "Rets",
+    "description": "Rets is a simple music player with the retro feel of owning a cassette player.",
+    "banner": "/img/rets_banner.webp",
+    "tags": ["audio", "music"],
+    "download": "src/rets_v1.apk"
+  },
+  {
     "name": "Me Posa",
     "description": "Me Posa is a unique digital companion and habit-building app designed to transform your screen time into a rewarding journey of discovery.",
     "banner": "/img/app_03.webp",
