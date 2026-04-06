@@ -15,6 +15,10 @@
       integrity="sha384-ZBXiYtYQ6hJ2Y0ZNoYuI+Nq5MqWBr+chMrS/RkXpNzQCApHEhOt2aY8EJgqwHLkJ"
       crossorigin="anonymous"
     ></script>
+    <script
+      type="text/javascript"
+      src="https://res.cloudinary.com/veseylab/raw/upload/v1684982764/magicmouse-2.0.0.cdn.min.js"
+    ></script>
   </head>
   <body>
     <nav
@@ -353,96 +357,141 @@
 
     <script>
       const masonry = document.getElementById("masonry");
-      const masonrymobile = document.getElementById("masonry-mobile");
+      const masonryMobile = document.getElementById("masonry-mobile");
       const filterLinks = document.querySelectorAll("[data-tag]");
+
       let allProjects = [];
 
-      // Load JSON
-      async function loadProjects() {
-        try {
-          const res = await fetch("projects.json");
-          allProjects = await res.json();
-          renderProjects(allProjects);
-        } catch (err) {
-          console.error("Error loading projects.json:", err);
+      /* skeleton cards */
+      function skeletonCard(withHover = false) {
+        return `
+  <div class="mb-4 break-inside-avoid rounded-lg overflow-hidden shadow animate-pulse ${withHover ? "hover-3d" : ""}">
+    <div class="w-full aspect-video bg-base-300"></div>
+  </div>
+  `;
+      }
+
+      /* show skeleton while loading */
+      function showSkeleton() {
+        masonry.innerHTML = Array(6)
+          .fill(0)
+          .map(() => skeletonCard(true))
+          .join("");
+        masonryMobile.innerHTML = Array(4)
+          .fill(0)
+          .map(() => skeletonCard(false))
+          .join("");
+      }
+
+      /* media renderer */
+      function renderMedia(p) {
+        if (p.video) {
+          return `
+      <video autoplay muted loop playsinline class="w-full">
+        <source src="${p.video}" type="video/mp4">
+      </video>
+    `;
         }
+
+        return `
+    <img 
+      src="${p.image}" 
+      alt="${p.title}" 
+      loading="lazy"
+      class="w-full"
+    >
+  `;
       }
 
-      // Render cards
+      /* single card template */
+      function projectCard(p, withHover = false) {
+        return `
+  <div class="mb-4 break-inside-avoid rounded-lg overflow-hidden shadow ${withHover ? "hover-3d" : ""}">
+    ${renderMedia(p)}
+  </div>
+  `;
+      }
+
+      /* render both layouts */
       function renderProjects(projects) {
-        masonry.innerHTML = projects
-          .map((p) => {
-            // If project has video, autoplay/loop it
-            const media = p.video
-              ? `<video autoplay muted loop playsinline class="w-full">
-             <source src="${p.video}" type="video/mp4">
-             Your browser does not support the video tag.
-           </video>`
-              : `<img src="${p.image}" alt="${p.title}" class="w-full">`;
+        const desktopHTML = projects.map((p) => projectCard(p, true)).join("");
 
-            return `
-        <div class="mb-4 break-inside-avoid rounded-lg overflow-hidden shadow hover-3d">
-          ${media}
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      `;
-          })
-          .join("");
-        masonrymobile.innerHTML = projects
-          .map((p) => {
-            // If project has video, autoplay/loop it
-            const media = p.video
-              ? `<video autoplay muted loop playsinline class="w-full">
-             <source src="${p.video}" type="video/mp4">
-             Your browser does not support the video tag.
-           </video>`
-              : `<img src="${p.image}" alt="${p.title}" class="w-full">`;
+        const mobileHTML = projects.map((p) => projectCard(p, false)).join("");
 
-            return `
-        <div class="mb-4 break-inside-avoid rounded-lg overflow-hidden shadow">
-          ${media}
-        </div>
-      `;
-          })
-          .join("");
+        masonry.innerHTML = desktopHTML;
+        masonryMobile.innerHTML = mobileHTML;
       }
 
-      // Filter
+      /* filtering */
       function filterByTag(tag) {
         if (tag === "all") {
           renderProjects(allProjects);
-        } else {
-          renderProjects(allProjects.filter((p) => p.tags.includes(tag)));
+          return;
+        }
+
+        const filtered = allProjects.filter((p) => p.tags?.includes(tag));
+
+        renderProjects(filtered);
+      }
+
+      /* active badge UI */
+      function setActive(link) {
+        filterLinks.forEach((l) => {
+          l.classList.remove("badge");
+          l.classList.add("text-black");
+        });
+
+        link.classList.add("badge");
+        link.classList.remove("text-black");
+      }
+
+      /* load JSON */
+      async function loadProjects() {
+        showSkeleton();
+
+        try {
+          const res = await fetch("projects.json");
+          allProjects = await res.json();
+
+          renderProjects(allProjects);
+        } catch (err) {
+          console.error("projects.json failed:", err);
+
+          masonry.innerHTML = `<p class="text-red-500">Failed to load projects</p>`;
         }
       }
 
-      // Event listeners
+      /* events */
       filterLinks.forEach((link) => {
         link.addEventListener("click", (e) => {
           e.preventDefault();
 
-          // Remove active class from all
-          filterLinks.forEach((l) => l.classList.remove("badge"));
-          filterLinks.forEach((l) => l.classList.add("text-black"));
+          const tag = link.dataset.tag;
 
-          // Add active class to clicked one
-          link.classList.remove("text-black");
-          link.classList.add("badge");
-
-          // Filter projects
-          const tag = link.getAttribute("data-tag");
+          setActive(link);
           filterByTag(tag);
         });
       });
 
       loadProjects();
+    </script>
+
+    <script>
+      options = {
+        outerStyle: "circle",
+        hoverEffect: "circle-move",
+        hoverItemMove: false,
+        defaultCursor: false,
+        outerWidth: 50,
+        outerHeight: 50,
+      };
+
+      magicMouse(options);
+    </script>
+    <script>
+      document
+        .querySelectorAll("a, button, .btn")
+        .forEach((el) => el.classList.add("magic-hover"));
     </script>
   </body>
 </html>
