@@ -39,7 +39,7 @@
         Filter
       </div>
       <ul
-        id="filter"
+        id="filter-mobile"
         tabindex="0"
         class="items-center text-black dropdown-content menu bg-primary rounded-box z-1 p-2 shadow-sm"
       >
@@ -358,11 +358,15 @@
     <script>
       const masonry = document.getElementById("masonry");
       const masonryMobile = document.getElementById("masonry-mobile");
-      const filterLinks = document.querySelectorAll("[data-tag]");
+
+      const filterLinks = document.querySelectorAll(
+        ".tag-link, #filter-mobile [data-tag]",
+      );
 
       let allProjects = [];
+      let currentTag = "all";
 
-      /* skeleton cards */
+      /* skeleton */
       function skeletonCard(withHover = false) {
         return `
   <div class="mb-4 break-inside-avoid rounded-lg overflow-hidden shadow animate-pulse ${withHover ? "hover-3d" : ""}">
@@ -371,70 +375,84 @@
   `;
       }
 
-      /* show skeleton while loading */
       function showSkeleton() {
-        masonry.innerHTML = Array(6)
+        masonry.innerHTML = Array(8)
           .fill(0)
           .map(() => skeletonCard(true))
           .join("");
-        masonryMobile.innerHTML = Array(4)
+
+        masonryMobile.innerHTML = Array(6)
           .fill(0)
           .map(() => skeletonCard(false))
           .join("");
       }
 
-      /* media renderer */
+      /* media */
       function renderMedia(p) {
         if (p.video) {
           return `
-      <video autoplay muted loop playsinline class="w-full">
-        <source src="${p.video}" type="video/mp4">
-      </video>
+    <video muted loop playsinline preload="none" class="w-full">
+      <source src="${p.video}" type="video/mp4">
+    </video>
     `;
         }
 
         return `
-    <img 
-      src="${p.image}" 
-      alt="${p.title}" 
-      loading="lazy"
-      class="w-full"
-    >
+  <img
+    src="${p.image}"
+    alt="${p.title}"
+    loading="lazy"
+    class="w-full"
+  >
   `;
       }
 
-      /* single card template */
+      /* card */
       function projectCard(p, withHover = false) {
         return `
   <div class="mb-4 break-inside-avoid rounded-lg overflow-hidden shadow ${withHover ? "hover-3d" : ""}">
+
     ${renderMedia(p)}
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
   </div>
   `;
       }
 
-      /* render both layouts */
+      /* render */
       function renderProjects(projects) {
-        const desktopHTML = projects.map((p) => projectCard(p, true)).join("");
+        masonry.innerHTML = projects.map((p) => projectCard(p, true)).join("");
 
-        const mobileHTML = projects.map((p) => projectCard(p, false)).join("");
+        masonryMobile.innerHTML = projects
+          .map((p) => projectCard(p, false))
+          .join("");
 
-        masonry.innerHTML = desktopHTML;
-        masonryMobile.innerHTML = mobileHTML;
+        playVisibleVideos();
       }
 
-      /* filtering */
+      /* filter */
       function filterByTag(tag) {
+        if (tag === currentTag) return;
+
+        currentTag = tag;
+
         if (tag === "all") {
           renderProjects(allProjects);
           return;
         }
 
-        const filtered = allProjects.filter((p) => p.tags?.includes(tag));
-
-        renderProjects(filtered);
+        renderProjects(allProjects.filter((p) => p.tags?.includes(tag)));
       }
 
-      /* active badge UI */
+      /* active badge */
       function setActive(link) {
         filterLinks.forEach((l) => {
           l.classList.remove("badge");
@@ -445,19 +463,29 @@
         link.classList.remove("text-black");
       }
 
-      /* load JSON */
+      /* video optimization */
+      function playVisibleVideos() {
+        document.querySelectorAll("video").forEach((video) => {
+          const rect = video.getBoundingClientRect();
+
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            video.play().catch(() => {});
+          }
+        });
+      }
+
+      /* load json */
       async function loadProjects() {
         showSkeleton();
 
         try {
           const res = await fetch("projects.json");
+
           allProjects = await res.json();
 
           renderProjects(allProjects);
         } catch (err) {
-          console.error("projects.json failed:", err);
-
-          masonry.innerHTML = `<p class="text-red-500">Failed to load projects</p>`;
+          masonry.innerHTML = `<p class="text-error">Failed to load</p>`;
         }
       }
 
@@ -466,13 +494,15 @@
         link.addEventListener("click", (e) => {
           e.preventDefault();
 
-          const tag = link.dataset.tag;
-
           setActive(link);
-          filterByTag(tag);
+
+          filterByTag(link.dataset.tag);
         });
       });
 
+      window.addEventListener("scroll", playVisibleVideos);
+
+      /* start */
       loadProjects();
     </script>
 

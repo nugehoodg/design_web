@@ -3162,6 +3162,9 @@
   .text-black {
     color: var(--color-black);
   }
+  .text-error {
+    color: var(--color-error);
+  }
   .text-gray-600 {
     color: var(--color-gray-600);
   }
