@@ -1,5 +1,12 @@
 [
   {
+    "name": "MoSlides",
+    "description": "MoSlides is an ultrafast &  lightweight Markdown slides maker for Android",
+    "banner": "/img/moslides_banner.webp",
+    "tags": ["productivity"],
+    "download": "https://github.com/nugehoodg/MoSlides/releases"
+  },
+  {
     "name": "Rets",
     "description": "Rets is a simple music player with the retro feel of owning a cassette player.",
     "banner": "/img/rets_banner.webp",
