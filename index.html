@@ -15,10 +15,6 @@
       integrity="sha384-ZBXiYtYQ6hJ2Y0ZNoYuI+Nq5MqWBr+chMrS/RkXpNzQCApHEhOt2aY8EJgqwHLkJ"
       crossorigin="anonymous"
     ></script>
-    <script
-      type="text/javascript"
-      src="https://res.cloudinary.com/veseylab/raw/upload/v1684982764/magicmouse-2.0.0.cdn.min.js"
-    ></script>
   </head>
   <body>
     <nav
@@ -28,7 +24,7 @@
       hx-target="this"
     ></nav>
     <div
-      class="lg:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50 dropdown dropdown-center dropdown-top"
+      class="lg:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-20 dropdown dropdown-center dropdown-top"
     >
       <div
         tabindex="0"
@@ -103,7 +99,7 @@
 
     <nav
       id="filter"
-      class="lg:flex gap-6 hidden items-center text-black z-100 fixed bottom-4 left-1/2 -translate-x-1/2 bg-primary shadow-lg rounded-full px-4 py-2"
+      class="lg:flex gap-6 hidden items-center text-black z-30 fixed bottom-4 left-1/2 -translate-x-1/2 bg-primary shadow-lg rounded-full px-4 py-2"
     >
       <div class="font-bold badge">Filter</div>
       <a
@@ -495,24 +491,6 @@
 
       /* start */
       loadProjects();
-    </script>
-
-    <script>
-      options = {
-        outerStyle: "circle",
-        hoverEffect: "circle-move",
-        hoverItemMove: false,
-        defaultCursor: false,
-        outerWidth: 50,
-        outerHeight: 50,
-      };
-
-      magicMouse(options);
-    </script>
-    <script>
-      document
-        .querySelectorAll("a, button, .btn")
-        .forEach((el) => el.classList.add("magic-hover"));
     </script>
   </body>
 </html>

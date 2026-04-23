@@ -10,10 +10,6 @@
     <link href="../src/output.css" rel="stylesheet">
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.7/dist/htmx.min.js" integrity="sha384-ZBXiYtYQ6hJ2Y0ZNoYuI+Nq5MqWBr+chMrS/RkXpNzQCApHEhOt2aY8EJgqwHLkJ" crossorigin="anonymous"></script>
-    <script
-      type="text/javascript"
-      src="https://res.cloudinary.com/veseylab/raw/upload/v1684982764/magicmouse-2.0.0.cdn.min.js"
-    ></script>
 </head>
 
 
@@ -209,24 +205,6 @@
 
 <footer class="flex justify-between p-5 border-t" hx-get="../footer_01.html" hx-trigger="load" hx-target="this">
 </footer>
-
-    <script>
-      options = {
-        outerStyle: "circle",
-        hoverEffect: "circle-move",
-        hoverItemMove: false,
-        defaultCursor: false,
-        outerWidth: 50,
-        outerHeight: 50,
-      };
-
-      magicMouse(options);
-    </script>
-    <script>
-      document
-        .querySelectorAll("a, button, .btn")
-        .forEach((el) => el.classList.add("magic-hover"));
-    </script>
 </body>
 
 </html>

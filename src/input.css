@@ -4,19 +4,3 @@
 }
 @plugin "tailwindcss-motion";
 @plugin "@midudev/tailwind-animations";
-@layer base {
-  html, body {
-    cursor: none;
-  }
-}
-@layer components {
-
-#magicMouseCursor{
-
-  background: rgba(255, 202, 111, 0.22) !important;
-  border: 2px solid #DB924C !important;
-
-
-}
-
-}
