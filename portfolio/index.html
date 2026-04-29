@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en" data-theme="coffee">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+    <title>Anugerah | Graphic Designer & Front-end Developer Portfolio</title>
+    <meta name="description"
+        content="Portfolio of Anugerah, a passionate Graphic Designer, 3D Artist, and Front-end Developer with 8 years of experience creating visually compelling projects." />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://anugerah.vercel.app/" />
+    <meta property="og:title" content="Anugerah | Graphic Designer & Front-end Developer Portfolio" />
+    <meta property="og:description"
+        content="Exploring the creative works of Anugerah, featuring Graphic Design, 3D Art, and Front-end Development." />
+    <meta property="og:image" content="https://anugerah.vercel.app/img/OG_banner.png" />
+
+    <meta property="og:logo" content="https://anugerah.vercel.app/favicon-32x32.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://anugerah.vercel.app/" />
+    <meta property="twitter:title" content="Anugerah | Graphic Designer & Front-end Developer Portfolio" />
+    <meta property="twitter:logo" content="https://anugerah.vercel.app/favicon-32x32.png" />
+    <meta property="twitter:description"
+        content="Exploring the creative works of Anugerah, featuring Graphic Design, 3D Art, and Front-end Development." />
+    <meta property="twitter:image" content="https://anugerah.vercel.app/img/OG_banner.png" />
+
+    <link rel="canonical" href="https://anugerah.vercel.app/" />
+    <link href="../src/output.css" rel="stylesheet" />
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.7/dist/htmx.min.js"
+        integrity="sha384-ZBXiYtYQ6hJ2Y0ZNoYuI+Nq5MqWBr+chMrS/RkXpNzQCApHEhOt2aY8EJgqwHLkJ"
+        crossorigin="anonymous"></script>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Anugerah",
+        "url": "https://anugerah.vercel.app",
+        "jobTitle": "Graphic Designer & Front-end Developer",
+        "description": "Graphic Designer, 3D Artist, and Front-end Developer with 8 years of experience.",
+        "knowsAbout": [
+          "Graphic Design",
+          "3D Art",
+          "Front-end Development",
+          "Video Editing",
+          "Content Writing"
+        ],
+        "sameAs": ["https://github.com/nugehoodg"]
+      }
+    </script>
+</head>
+
+<body>
+    <nav class="navbar p-7 sm:p-10 mx-auto border-b" hx-get="../navbar.html" hx-trigger="load" hx-target="this"></nav>
+    <div class="lg:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-20 dropdown dropdown-center dropdown-top">
+        <div tabindex="0" role="button" class="hover:badge-ghost rounded-2xl btn m-1 btn-primary shadow-lg">
+            Filter
+        </div>
+        <ul id="filter-mobile" tabindex="0"
+            class="items-center text-black dropdown-content menu bg-primary rounded-box z-1 p-2 shadow-sm">
+            <li>
+                <a href="#" data-tag="all" class="text-sm font-medium hover:text-secondary-content">All</a>
+            </li>
+            <li>
+                <a href="#" data-tag="poster" class="text-sm font-medium hover:text-secondary-content">Poster</a>
+            </li>
+            <li>
+                <a href="#" data-tag="branding" class="text-sm font-medium hover:text-secondary-content">Branding</a>
+            </li>
+            <li>
+                <a href="#" data-tag="app" class="text-sm font-medium hover:text-secondary-content">App</a>
+            </li>
+            <li>
+                <a href="#" data-tag="website" class="text-sm font-medium hover:text-secondary-content">Website</a>
+            </li>
+            <li>
+                <a href="#" data-tag="3d" class="text-sm font-medium hover:text-secondary-content">3D</a>
+            </li>
+            <li>
+                <a href="#" data-tag="product" class="text-sm font-medium hover:text-secondary-content">Product</a>
+            </li>
+        </ul>
+    </div>
+
+    <nav id="filter"
+        class="lg:flex gap-6 hidden items-center text-black z-30 fixed bottom-4 left-1/2 -translate-x-1/2 bg-primary shadow-lg rounded-full px-4 py-2">
+        <div class="font-bold badge">Filter</div>
+        <a href="#" data-tag="all" class="tag-link text-sm font-medium hover:text-secondary-content">All</a>
+        <a href="#" data-tag="poster" class="tag-link text-sm font-medium hover:text-secondary-content">Poster</a>
+        <a href="#" data-tag="branding" class="tag-link text-sm font-medium hover:text-secondary-content">Branding</a>
+        <a href="#" data-tag="app" class="tag-link text-sm font-medium hover:text-secondary-content">App</a>
+        <a href="#" data-tag="website" class="tag-link text-sm font-medium hover:text-secondary-content">Website</a>
+        <a href="#" data-tag="3d" class="tag-link text-sm font-medium hover:text-secondary-content">3D</a>
+        <a href="#" data-tag="product" class="tag-link text-sm font-medium hover:text-secondary-content">Product</a>
+    </nav>
+
+    <div id="masonry" class="hidden lg:block columns-2 sm:columns-2 lg:columns-4 gap-4 p-4"></div>
+    <div id="masonry-mobile" class="block lg:hidden columns-2 sm:columns-2 lg:columns-4 gap-4 p-4"></div>
+
+
+
+    <footer class="flex justify-between p-5 border-t mt-10" hx-get="../footer.html" hx-trigger="load" hx-target="this">
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn"
+        class="fixed bottom-20 right-6 z-50 btn btn-circle btn-primary shadow-xl opacity-0 invisible transition-all duration-300 translate-y-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
+
+    <script>
+        const masonry = document.getElementById("masonry");
+        const masonryMobile = document.getElementById("masonry-mobile");
+
+        const filterLinks = document.querySelectorAll(
+            ".tag-link, #filter-mobile [data-tag]",
+        );
+
+        let allProjects = [];
+        let currentTag = "all";
+
+        /* skeleton */
+        function skeletonCard(withHover = false) {
+            return `
+  <div class="mb-4 break-inside-avoid rounded-lg overflow-hidden shadow animate-pulse ${withHover ? "hover-3d" : ""}">
+    <div class="w-full aspect-video bg-base-300"></div>
+  </div>
+  `;
+        }
+
+        function showSkeleton() {
+            masonry.innerHTML = Array(8)
+                .fill(0)
+                .map(() => skeletonCard(true))
+                .join("");
+
+            masonryMobile.innerHTML = Array(6)
+                .fill(0)
+                .map(() => skeletonCard(false))
+                .join("");
+        }
+
+        /* media */
+        function renderMedia(p) {
+            if (p.video) {
+                return `
+    <video muted loop playsinline preload="none" class="w-full">
+      <source src="../${p.video}" type="video/mp4">
+    </video>
+    `;
+            }
+
+            return `
+  <img
+    src="../${p.image}"
+    alt="${p.title}"
+    loading="lazy"
+    class="w-full"
+  >
+  `;
+        }
+
+        /* card */
+        function projectCard(p, withHover = false) {
+            return `
+  <div class="mb-4 break-inside-avoid rounded-lg overflow-hidden shadow ${withHover ? "hover-3d" : ""}">
+
+    ${renderMedia(p)}
+
+
+  </div>
+  `;
+        }
+
+        /* render */
+        function renderProjects(projects) {
+            masonry.innerHTML = projects.map((p) => projectCard(p, true)).join("");
+
+            masonryMobile.innerHTML = projects
+                .map((p) => projectCard(p, false))
+                .join("");
+
+            playVisibleVideos();
+        }
+
+        /* filter */
+        function filterByTag(tag) {
+            if (tag === currentTag) return;
+
+            currentTag = tag;
+
+            if (tag === "all") {
+                renderProjects(allProjects);
+                return;
+            }
+
+            renderProjects(allProjects.filter((p) => p.tags?.includes(tag)));
+        }
+
+        /* active badge */
+        function setActive(link) {
+            filterLinks.forEach((l) => {
+                l.classList.remove("badge");
+                l.classList.add("text-black");
+            });
+
+            link.classList.add("badge");
+            link.classList.remove("text-black");
+        }
+
+        /* video optimization */
+        function playVisibleVideos() {
+            document.querySelectorAll("video").forEach((video) => {
+                const rect = video.getBoundingClientRect();
+
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    video.play().catch(() => { });
+                }
+            });
+        }
+
+        /* load json */
+        async function loadProjects() {
+            showSkeleton();
+
+            try {
+                const res = await fetch("../projects.json");
+
+                allProjects = await res.json();
+
+                renderProjects(allProjects);
+            } catch (err) {
+                masonry.innerHTML = `<p class="text-error">Failed to load</p>`;
+            }
+        }
+
+        /* events */
+        filterLinks.forEach((link) => {
+            link.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                setActive(link);
+
+                filterByTag(link.dataset.tag);
+            });
+        });
+
+        window.addEventListener("scroll", playVisibleVideos);
+
+        /* scroll to top logic */
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        function handleScroll() {
+            // Check if user has reached near the bottom of the page (within 500px)
+            const isNearBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 500;
+
+            if (isNearBottom) {
+                scrollToTopBtn.classList.remove("invisible", "opacity-0", "translate-y-4");
+                scrollToTopBtn.classList.add("opacity-100", "translate-y-0");
+            } else {
+                scrollToTopBtn.classList.remove("opacity-100", "translate-y-0");
+                scrollToTopBtn.classList.add("opacity-0", "translate-y-4");
+                setTimeout(() => {
+                    if (scrollToTopBtn.classList.contains("opacity-0")) {
+                        scrollToTopBtn.classList.add("invisible");
+                    }
+                }, 300);
+            }
+        }
+
+        window.addEventListener("scroll", handleScroll);
+
+        scrollToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+        /* start */
+        loadProjects();
+    </script>
+</body>
+
+</html>
