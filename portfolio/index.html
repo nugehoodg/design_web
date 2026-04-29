@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/x-icon" href="../favicon.ico" />
     <title>Anugerah | Graphic Designer & Front-end Developer Portfolio</title>
     <meta name="description"
@@ -34,6 +36,7 @@
     <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.7/dist/htmx.min.js"
         integrity="sha384-ZBXiYtYQ6hJ2Y0ZNoYuI+Nq5MqWBr+chMrS/RkXpNzQCApHEhOt2aY8EJgqwHLkJ"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../src/magic-cursor.css">
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
@@ -216,14 +219,20 @@
             link.classList.remove("text-black");
         }
 
-        /* video optimization */
+        /* video optimization using IntersectionObserver */
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.play().catch(() => { });
+                } else {
+                    entry.target.pause();
+                }
+            });
+        }, { threshold: 0.1 });
+
         function playVisibleVideos() {
             document.querySelectorAll("video").forEach((video) => {
-                const rect = video.getBoundingClientRect();
-
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    video.play().catch(() => { });
-                }
+                videoObserver.observe(video);
             });
         }
 
@@ -253,7 +262,7 @@
             });
         });
 
-        window.addEventListener("scroll", playVisibleVideos);
+        window.addEventListener("scroll", handleScroll, { passive: true });
 
         /* scroll to top logic */
         const scrollToTopBtn = document.getElementById("scrollToTopBtn");
@@ -288,6 +297,7 @@
         /* start */
         loadProjects();
     </script>
+    <script src="../src/magic-cursor.js"></script>
 </body>
 
 </html>

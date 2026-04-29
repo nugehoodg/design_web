@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>Anugerah | Creative Developer & Graphic Designer</title>
     <meta name="description"
         content="Learn more about Anugerah, a passionate Graphic Designer and Creative Developer with 8 years of experience. Find all my links, social media, and portfolio in one place.">
@@ -35,6 +37,7 @@
     <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.7/dist/htmx.min.js"
         integrity="sha384-ZBXiYtYQ6hJ2Y0ZNoYuI+Nq5MqWBr+chMrS/RkXpNzQCApHEhOt2aY8EJgqwHLkJ"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="src/magic-cursor.css">
     <style>
         :root {
             --bg-color: #FAF9F6;
@@ -235,6 +238,7 @@
             display: flex;
             width: max-content;
             animation: marquee 30s linear infinite;
+            will-change: transform;
         }
 
         .marquee-content {
@@ -268,11 +272,11 @@
 
         @keyframes marquee {
             0% {
-                transform: translateX(0);
+                transform: translate3d(0, 0, 0);
             }
-
+        
             100% {
-                transform: translateX(-50%);
+                transform: translate3d(-50%, 0, 0);
             }
         }
 
@@ -304,6 +308,8 @@
             flex-direction: column;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
             cursor: pointer;
+            content-visibility: auto;
+            contain-intrinsic-size: 1px 240px;
         }
 
         .bento-card:hover {
@@ -1152,6 +1158,7 @@
             });
         });
     </script>
+    <script src="src/magic-cursor.js"></script>
 </body>
 
 </html>

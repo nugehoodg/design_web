@@ -1,0 +1,75 @@
+/* Magic Cursor Styles */
+
+:root {
+    --cursor-dot-size: 10px;
+    --cursor-ring-size: 40px;
+    --cursor-color: #000000;
+    --cursor-hover-scale: 1.4;
+}
+
+body {
+    /* Hide the default cursor */
+    cursor: none !important;
+}
+
+/* Ensure interactive elements also don't show the cursor */
+a, button, [role="button"], input, textarea, .bento-card, .tag-link, .nav-link, .back-btn {
+    cursor: none !important;
+}
+
+.magic-cursor-dot,
+.magic-cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 999999;
+    border-radius: 50%;
+    /* Remove translate(-50%, -50%) from here as we'll handle it in JS with translate3d for better performance */
+    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+    mix-blend-mode: difference;
+    will-change: transform;
+}
+
+.magic-cursor-dot {
+    width: var(--cursor-dot-size);
+    height: var(--cursor-dot-size);
+    background-color: #ffffff; /* White + difference = black on light bg, white on dark bg */
+}
+
+.magic-cursor-ring {
+    width: var(--cursor-ring-size);
+    height: var(--cursor-ring-size);
+    border: 2px solid #ffffff;
+    background-color: transparent;
+}
+
+/* Hover States */
+.magic-cursor-dot.hover {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+}
+
+.magic-cursor-ring.hover {
+    width: calc(var(--cursor-ring-size) * var(--cursor-hover-scale));
+    height: calc(var(--cursor-ring-size) * var(--cursor-hover-scale));
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+}
+
+/* Click Animation */
+.magic-cursor-ring.clicking {
+    transform: translate(-50%, -50%) scale(0.8);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Hide cursor on mobile/touch */
+@media (hover: none) and (pointer: coarse) {
+    .magic-cursor-dot,
+    .magic-cursor-ring {
+        display: none;
+    }
+    body {
+        cursor: auto !important;
+    }
+}
