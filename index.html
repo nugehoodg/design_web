@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Anugerah | Creative Developer & Graphic Designer</title>
+    <title>Anugerah | Creative Developer & Graphic Designer</title>
     <meta name="description"
         content="Learn more about Anugerah, a passionate Graphic Designer and Creative Developer with 8 years of experience. Find all my links, social media, and portfolio in one place.">
     <link rel="icon" type="image/x-icon" href="../favicon.ico" />
@@ -42,6 +42,10 @@
             --text-light: #FFFFFF;
         }
 
+        html {
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg-color);
@@ -54,16 +58,22 @@
             overflow-x: hidden;
         }
 
-        /* Header */
+        /* Header & Navigation */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 24px 40px;
+            padding: 32px 40px;
             max-width: 1200px;
             margin: 0 auto;
             width: 100%;
             box-sizing: border-box;
+            position: sticky;
+            top: 0;
+            background: rgba(250, 249, 246, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
         }
 
         .logo {
@@ -74,17 +84,62 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            z-index: 1002;
+        }
+
+        @keyframes logo-spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .logo svg {
             width: 32px;
             height: 32px;
+            animation: logo-spin 4s linear infinite;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #A797E2;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+        }
+
+        .nav-toggle-label {
+            display: none;
         }
 
         .back-btn {
             background: #2D2D2D;
             color: var(--text-light);
-            padding: 14px 28px;
+            padding: 12px 24px;
             border-radius: 40px;
             text-decoration: none;
             font-weight: 600;
@@ -262,6 +317,7 @@
             font-weight: 800;
             z-index: 10;
             line-height: 1.1;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .bento-card p {
@@ -271,6 +327,7 @@
             z-index: 10;
             font-weight: 500;
             max-width: 80%;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         /* Card Variations */
@@ -334,6 +391,7 @@
             z-index: 10;
             transition: all 0.3s ease;
             text-decoration: none;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
         }
 
         .bento-card:hover .link-pill {
@@ -694,9 +752,87 @@
             }
 
             header {
-                padding: 20px;
+                padding: 16px 20px;
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 10px;
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                background: var(--bg-color);
+            }
+
+            .nav-toggle-label {
+                display: block;
+                cursor: pointer;
+                padding: 10px;
+                z-index: 1003;
+            }
+
+            .nav-toggle-label span,
+            .nav-toggle-label span::before,
+            .nav-toggle-label span::after {
+                display: block;
+                background: var(--text-dark);
+                height: 2px;
+                width: 24px;
+                border-radius: 2px;
+                position: relative;
+                transition: all 0.3s ease;
+            }
+
+            .nav-toggle-label span::before,
+            .nav-toggle-label span::after {
+                content: '';
+                position: absolute;
+            }
+
+            .nav-toggle-label span::before {
+                bottom: 8px;
+            }
+
+            .nav-toggle-label span::after {
+                top: 8px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: var(--bg-color);
+                display: flex;
                 flex-direction: column;
-                gap: 20px;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                transform: translateX(100%);
+                transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+                z-index: 1001;
+                padding: 0;
+                text-align: center;
+            }
+
+            .nav-link {
+                font-size: 1.5rem;
+            }
+
+            .nav-toggle:checked~.nav-links {
+                transform: translateX(0);
+            }
+
+            .nav-toggle:checked+.nav-toggle-label span {
+                background: transparent;
+            }
+
+            .nav-toggle:checked+.nav-toggle-label span::before {
+                transform: rotate(45deg);
+                bottom: 0;
+            }
+
+            .nav-toggle:checked+.nav-toggle-label span::after {
+                transform: rotate(-45deg);
+                top: 0;
             }
 
             .bento-card h2 {
@@ -704,15 +840,59 @@
             }
 
             .be-card {
-                right: 10px;
-                width: 180px;
-                height: 220px;
+                right: -30px;
+                bottom: -50px;
+                width: 140px;
+                height: 180px;
             }
 
             .be-card-2 {
-                right: -60px;
-                width: 180px;
+                right: -80px;
+                bottom: -10px;
+                width: 140px;
+                height: 160px;
+            }
+
+            .gh-window {
+                right: -40px;
+                bottom: -40px;
+                width: 160px;
                 height: 200px;
+            }
+
+            .li-card {
+                right: -20px;
+                bottom: -20px;
+                width: 140px;
+                height: 90px;
+            }
+
+            .ig-notif {
+                right: -20px;
+                bottom: -20px;
+                width: 140px;
+            }
+
+            .re-cards {
+                right: -10px;
+                bottom: -30px;
+                transform: scale(0.85);
+                transform-origin: bottom right;
+            }
+
+            .app-window {
+                right: -20px;
+                bottom: -30px;
+                width: 140px;
+                height: 90px;
+                padding: 10px;
+                gap: 8px;
+            }
+
+            .app-icon-mock {
+                width: 26px;
+                height: 26px;
+                border-radius: 8px;
             }
         }
     </style>
@@ -731,6 +911,15 @@
             Anugerah
         </a>
 
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+
+        <nav class="nav-links">
+            <a href="https://nuge.gumroad.com/" target="_blank" class="nav-link">Shop</a>
+            <a href="https://linktr.ee/nugedonate" target="_blank" class="back-btn">Donate</a>
+        </nav>
     </header>
 
     <main>
@@ -762,7 +951,7 @@
                 <!-- Design Portfolio (Main) -->
                 <a href="/portfolio" class="bento-card card-behance">
                     <h2>Design<br>Portfolio</h2>
-                    <p>View my visual works and branding projects.</p>
+                    <p>my visual works.</p>
                     <div class="link-pill">View All</div>
 
                     <div class="ui-mockup be-card-2">
@@ -780,7 +969,7 @@
                 <!-- Code & Projects -->
                 <a href="https://github.com/nugehoodg" target="_blank" class="bento-card card-github">
                     <h2>Code &<br>Projects</h2>
-                    <p>Check out my open-source repositories.</p>
+                    <p>my open-source repositories.</p>
                     <div class="link-pill">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
@@ -937,6 +1126,16 @@
             } catch (error) {
                 console.error("Failed to load skills list:", error);
             }
+
+            // Disable scroll when mobile menu is open
+            const navToggle = document.getElementById('nav-toggle');
+            navToggle.addEventListener('change', () => {
+                if (navToggle.checked) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+            });
         });
     </script>
 </body>
