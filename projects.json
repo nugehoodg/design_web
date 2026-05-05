@@ -62,8 +62,6 @@
   
 
 
-
-
   {
     "title": "Project Title",
     "tags": ["poster"],
@@ -108,6 +106,14 @@
     "tags": ["branding", "product"],
     "image": "img/design_05.webp"
   },
+  
+    {
+    "title": "Project Title",
+    "tags": ["website", "branding"],
+    "video": "videos/new_web.webm"
+  },
+
+
   {
     "title": "Project Title",
     "tags": ["branding", "poster"],
@@ -263,6 +269,7 @@
     "tags": ["poster", "product", "branding"],
     "image": "img/koe1.webp"
   }
+  
 
 
 
