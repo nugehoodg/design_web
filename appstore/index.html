@@ -139,10 +139,10 @@
 
     async function updateCount(appId, el) {
         try {
-            const response = await fetch(`https://corsproxy.io/?https://api.counterapi.dev/v1/nugehoodg_apps/${appId}`);
+            const response = await fetch(`https://abacus.jasoncameron.dev/get/nugehoodg_apps/${appId}`);
             if (response.ok) {
                 const data = await response.json();
-                el.textContent = data.count || 0;
+                el.textContent = data.value || 0;
             } else {
                 el.textContent = 0;
             }
@@ -153,10 +153,10 @@
 
     async function incrementCount(appId, el) {
         try {
-            const response = await fetch(`https://corsproxy.io/?https://api.counterapi.dev/v1/nugehoodg_apps/${appId}/up`);
+            const response = await fetch(`https://abacus.jasoncameron.dev/hit/nugehoodg_apps/${appId}`);
             if (response.ok) {
                 const data = await response.json();
-                el.textContent = data.count;
+                el.textContent = data.value;
             }
         } catch (e) {
             console.error("Failed to increment count", e);
