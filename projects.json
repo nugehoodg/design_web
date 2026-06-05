@@ -59,6 +59,11 @@
     "tags": ["3d"],
     "image": "img/redrum.gif"
   },
+    {
+    "title": "Project Title",
+    "tags": ["poster","branding"],
+    "image": "img/nuke.webp"
+  },
   
 
 
@@ -72,6 +77,11 @@
     "title": "Project Title",
     "tags": ["app"],
     "image": "img/app_01.webp"
+  },
+    {
+    "title": "Project Title",
+    "tags": ["poster"],
+    "image": "img/times.webp"
   },
   {
     "title": "Project Title",
@@ -149,6 +159,7 @@
     "tags": ["poster"],
     "image": "img/jihadis.webp"
   },
+
 
 
   {
