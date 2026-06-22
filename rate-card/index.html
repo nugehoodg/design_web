@@ -1,0 +1,1212 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+  <title>Anugerah | Creative Services Rate Card</title>
+  <meta name="description"
+    content="Explore Anugerah's creative services — social media design, video editing, motion graphics, web design and more. Estimate your project cost with the interactive calculator." />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://anugerah.vercel.app/rate-card" />
+  <meta property="og:title" content="Anugerah | Creative Services Rate Card" />
+  <meta property="og:description"
+    content="Social media design, video editing, motion graphics, web design and more. Get a live project estimate." />
+  <meta property="og:image" content="https://anugerah.vercel.app/img/OG_banner.png" />
+  <meta property="og:logo" content="https://anugerah.vercel.app/favicon-32x32.png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://anugerah.vercel.app/rate-card" />
+  <meta property="twitter:title" content="Anugerah | Creative Services Rate Card" />
+  <meta property="twitter:description"
+    content="Social media design, video editing, motion graphics, web design and more. Get a live project estimate." />
+  <meta property="twitter:image" content="https://anugerah.vercel.app/img/OG_banner.png" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../src/magic-cursor.css" />
+  <link rel="stylesheet" href="../src/reveal.css" />
+
+  <style>
+    :root {
+      --bg-color: #faf9f6;
+      --text-dark: #1a1a1a;
+      --text-light: #ffffff;
+      --accent-color: #a797e2;
+    }
+
+    html {
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: "Outfit", -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-color);
+      margin: 0;
+      padding: 0;
+      color: var(--text-dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Header & Navigation (Copied from homepage) */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 32px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+      background: rgba(250, 249, 246, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 1000;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.5rem;
+      text-decoration: none;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 1002;
+    }
+
+    @keyframes logo-spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .logo svg {
+      width: 32px;
+      height: 32px;
+      animation: logo-spin 4s linear infinite;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-color);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-toggle {
+      display: none;
+    }
+
+    .nav-toggle-label {
+      display: none;
+    }
+
+    .back-btn {
+      background: #2d2d2d;
+      color: var(--text-light);
+      padding: 12px 24px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    }
+
+    .back-btn:hover {
+      transform: translateY(-2px);
+      background: #1a1a1a;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 16px 20px;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 10px;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: var(--bg-color);
+      }
+
+      .nav-toggle-label {
+        display: block;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 1003;
+      }
+
+      .nav-toggle-label span,
+      .nav-toggle-label span::before,
+      .nav-toggle-label span::after {
+        display: block;
+        background: var(--text-dark);
+        height: 2px;
+        width: 24px;
+        border-radius: 2px;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-toggle-label span::before,
+      .nav-toggle-label span::after {
+        content: "";
+        position: absolute;
+      }
+
+      .nav-toggle-label span::before {
+        bottom: 8px;
+      }
+
+      .nav-toggle-label span::after {
+        top: 8px;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--bg-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1);
+        z-index: 1001;
+        padding: 0;
+        text-align: center;
+      }
+
+      .nav-link {
+        font-size: 1.5rem;
+      }
+
+      .nav-toggle:checked~.nav-links {
+        transform: translateX(0);
+      }
+
+      .nav-toggle:checked+.nav-toggle-label span {
+        background: transparent;
+      }
+
+      .nav-toggle:checked+.nav-toggle-label span::before {
+        transform: rotate(45deg);
+        bottom: 0;
+      }
+
+      .nav-toggle:checked+.nav-toggle-label span::after {
+        transform: rotate(-45deg);
+        top: 0;
+      }
+    }
+
+    /* Content Area Styles */
+    .content-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+      box-sizing: border-box;
+      flex-grow: 1;
+    }
+
+    .rate-card-header {
+      text-align: center;
+      margin: 60px auto;
+    }
+
+    .sub-title {
+      text-transform: uppercase;
+      color: var(--accent-color);
+      letter-spacing: 2px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .main-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      font-style: italic;
+      margin: 10px 0 20px;
+      color: var(--text-dark);
+    }
+
+    .intro-text {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Packages Grid */
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 80px;
+    }
+
+    @media (max-width: 1024px) {
+      .packages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .packages-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    /* Mobile collapsible cards */
+    @media (max-width: 600px) {
+      .package-card {
+        padding: 18px 20px;
+        border-radius: 20px;
+      }
+
+      .card-header {
+        cursor: pointer;
+        user-select: none;
+        margin-bottom: 0;
+        position: relative;
+        padding-right: 36px; /* room for chevron */
+        align-items: center;
+      }
+
+      .card-title {
+        font-size: 1.1rem;
+        line-height: 1.25;
+      }
+
+      .price-label {
+        font-size: 0.62rem;
+      }
+
+      .price-tag {
+        font-size: 1.4rem;
+      }
+
+      .card-chevron {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 28px;
+        height: 28px;
+        color: var(--accent-color);
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        flex-shrink: 0;
+      }
+
+      .card-chevron svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      .package-card.is-open .card-chevron {
+        transform: translateY(-50%) rotate(180deg);
+      }
+
+      .card-collapsible {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.3s ease;
+      }
+
+      .package-card.is-open .card-collapsible {
+        max-height: 700px;
+        opacity: 1;
+      }
+
+      /* Add top border when open to visually separate */
+      .package-card.is-open .card-collapsible > *:first-child {
+        margin-top: 16px;
+      }
+
+      /* Kill hover lift on mobile */
+      .package-card:hover {
+        transform: none;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+        border-color: rgba(0, 0, 0, 0.03);
+      }
+      .package-card.is-open:hover {
+        border-color: rgba(167, 151, 226, 0.3);
+      }
+    }
+
+    /* On desktop the chevron is always hidden */
+    .card-chevron {
+      display: none;
+    }
+
+    .package-card {
+      background: #ffffff;
+      border-radius: 36px;
+      padding: 36px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      box-sizing: border-box;
+    }
+
+    .package-card:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      border-color: rgba(167, 151, 226, 0.3);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .card-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin: 0;
+      color: var(--text-dark);
+    }
+
+    .price-col {
+      text-align: right;
+    }
+
+    .price-label {
+      font-size: 0.7rem;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+    }
+
+    .price-tag {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent-color);
+      margin: 0;
+      line-height: 1;
+    }
+
+    .card-desc {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.5;
+      margin: 0 0 24px 0;
+    }
+
+    .deliv-title {
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      color: var(--text-dark);
+    }
+
+    .package-deliverables {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px 0;
+    }
+
+    .package-deliverables li {
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+      color: #444;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .package-deliverables li::before {
+      content: "✦";
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: #888;
+      border-top: 1px solid #f0f0f0;
+      padding-top: 16px;
+      margin-top: auto;
+    }
+
+    /* Calculator Card */
+    .calculator-card {
+      background: #ffffff;
+      border-radius: 36px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      margin-bottom: 80px;
+      box-sizing: border-box;
+    }
+
+    .calculator-title-section {
+      text-align: left;
+      margin-bottom: 32px;
+    }
+
+    .calculator-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      font-style: italic;
+      margin: 0;
+      color: var(--text-dark);
+    }
+
+    .calculator-desc {
+      font-size: 0.95rem;
+      color: #666;
+      margin: 8px 0 0;
+    }
+
+    .calculator-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+    }
+
+    @media (max-width: 900px) {
+      .calculator-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    .section-col-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: var(--accent-color);
+      margin: 0 0 20px 0;
+    }
+
+    .options-group {
+      margin-bottom: 24px;
+    }
+
+    .calc-option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      background: #fafafc;
+      border: 1px solid #eee;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .calc-option:hover {
+      background: #f3f2f7;
+      border-color: var(--accent-color);
+    }
+
+    .calc-option-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .calc-checkbox {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--accent-color);
+      cursor: pointer;
+    }
+
+    .calc-option-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-align: left;
+    }
+
+    .calc-option-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+    }
+
+    .calc-option-desc {
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    .calc-option-price {
+      font-weight: 800;
+      color: var(--accent-color);
+      font-size: 1.1rem;
+    }
+
+    /* Calculator Summary Box */
+    .calc-summary {
+      background: #faf9f6;
+      border-radius: 28px;
+      padding: 30px;
+      border: 1px solid #eee;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    .calc-rows {
+      space-y: 12px;
+    }
+
+    .calc-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 12px;
+    }
+
+    .calc-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+    }
+
+    .calc-total-title {
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--text-dark);
+    }
+
+    .calc-total-price {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--accent-color);
+      line-height: 1;
+    }
+
+    .calc-btn {
+      background: #2d2d2d;
+      color: var(--text-light);
+      padding: 16px 24px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-align: center;
+      box-sizing: border-box;
+      margin-top: 28px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .calc-btn:hover {
+      transform: translateY(-2px);
+      background: #1a1a1a;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .calc-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .calc-btn-desc {
+      font-size: 0.7rem;
+      text-align: center;
+      color: #888;
+      margin-top: 10px;
+      display: block;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      max-width: 800px;
+      margin: 0 auto 80px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      font-style: italic;
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--text-dark);
+    }
+
+    .faq-item {
+      background: #ffffff;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+      overflow: hidden;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item summary {
+      padding: 20px 24px;
+      font-weight: 700;
+      cursor: pointer;
+      outline: none;
+      user-select: none;
+      font-size: 1.05rem;
+      color: var(--text-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Custom caret for FAQ */
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: "+";
+      font-size: 1.3rem;
+      color: var(--accent-color);
+      transition: transform 0.3s ease;
+      font-weight: bold;
+    }
+
+    .faq-item[open] summary::after {
+      content: "-";
+    }
+
+    .faq-item[open] summary {
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .faq-content {
+      padding: 20px 24px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* Footer (Copied from homepage) */
+    footer {
+      padding: 60px 20px;
+      text-align: center;
+      font-weight: 500;
+      color: var(--text-dark);
+      opacity: 0.5;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      margin-top: auto;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sticky Header Navigation -->
+  <header>
+    <a href="/" class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path fill-rule="evenodd"
+          d="M12.75 5a.75.75 0 0 0-1.5 0v5.701l-4.937-2.85a.75.75 0 1 0-.75 1.299L10.5 12l-4.937 2.85a.75.75 0 1 0 .75 1.3l4.937-2.851V19a.75.75 0 0 0 1.5 0v-5.701l4.937 2.85a.75.75 0 0 0 .75-1.299L13.5 12l4.937-2.85a.75.75 0 0 0-.75-1.3l-4.937 2.851z"
+          clip-rule="evenodd" />
+      </svg>
+      Anugerah
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="nav-toggle-label">
+      <span></span>
+    </label>
+
+    <nav class="nav-links">
+      <a href="https://nuge.gumroad.com/" target="_blank" class="nav-link">Shop</a>
+      <a href="/rate-card" class="nav-link">Rate Card</a>
+      <a href="mailto:nugehoodg@gmail.com" class="back-btn">Contact Me</a>
+    </nav>
+  </header>
+
+  <main class="content-container">
+    <!-- Title Area -->
+    <div class="rate-card-header reveal">
+      <span class="sub-title">Services & Pricing</span>
+      <h1 class="main-title">RATE CARD</h1>
+      <p class="intro-text">
+        Content creation, design, and motion work for brands and creators. Transparent pricing, clear deliverables, and
+        high-impact visual output.
+      </p>
+    </div>
+
+    <!-- Bento Pricing Cards Grid -->
+    <div class="packages-grid" id="packages-grid">
+
+      <!-- Card 1: Social Media Design -->
+      <div class="package-card reveal">
+        <div>
+          <div class="card-header">
+            <h2 class="card-title">Social Media Design</h2>
+            <div class="price-col">
+              <span class="price-label">Starting at</span>
+              <p class="price-tag">$13</p>
+            </div>
+          </div>
+          <p class="card-desc">
+            Strategic social content designed for engagement, consistency, and brand growth.
+          </p>
+          <h3 class="deliv-title">Core Deliverables</h3>
+          <ul class="package-deliverables">
+            <li>Single static social media post</li>
+            <li>Platform-ready sizing (Instagram, LinkedIn, Facebook)</li>
+            <li>Creative concept & visual direction</li>
+            <li>Export in JPG/PNG</li>
+            <li>Up to 2 revisions</li>
+          </ul>
+        </div>
+        <div class="card-meta">
+          <span>Timeline: 1–3 Days</span>
+          <span>2 Revisions</span>
+        </div>
+      </div>
+
+      <!-- Card 2: Carousel Posts -->
+      <div class="package-card reveal">
+        <div>
+          <div class="card-header">
+            <h2 class="card-title">Carousel Posts</h2>
+            <div class="price-col">
+              <span class="price-label">Starting at</span>
+              <p class="price-tag">$30</p>
+            </div>
+          </div>
+          <p class="card-desc">
+            High-converting multi-slide content designed for storytelling and retention.
+          </p>
+          <h3 class="deliv-title">Core Deliverables</h3>
+          <ul class="package-deliverables">
+            <li>Custom carousel layout</li>
+            <li>Typography & content hierarchy</li>
+            <li>Up to 5 slides included</li>
+            <li>Platform optimization</li>
+            <li>Editable source file optional</li>
+          </ul>
+        </div>
+        <div class="card-meta">
+          <span>Timeline: 2–4 Days</span>
+          <span>2 Revisions</span>
+        </div>
+      </div>
+
+      <!-- Card 3: Thumbnail Design -->
+      <div class="package-card reveal">
+        <div>
+          <div class="card-header">
+            <h2 class="card-title">Thumbnail Design</h2>
+            <div class="price-col">
+              <span class="price-label">Starting at</span>
+              <p class="price-tag">$25</p>
+            </div>
+          </div>
+          <p class="card-desc">
+            Attention-grabbing thumbnails optimized for clicks and visual impact.
+          </p>
+          <h3 class="deliv-title">Core Deliverables</h3>
+          <ul class="package-deliverables">
+            <li>Custom composition</li>
+            <li>Typography treatment</li>
+            <li>Color enhancement</li>
+            <li>Export PNG/JPG</li>
+            <li>2 concepts included</li>
+          </ul>
+        </div>
+        <div class="card-meta">
+          <span>Timeline: 1 Day</span>
+          <span>2 Revisions</span>
+        </div>
+      </div>
+
+      <!-- Card 4: Event Posters & Banners -->
+      <div class="package-card reveal">
+        <div>
+          <div class="card-header">
+            <h2 class="card-title">Event Posters & Banners</h2>
+            <div class="price-col">
+              <span class="price-label">Starting at</span>
+              <p class="price-tag">$111</p>
+            </div>
+          </div>
+          <p class="card-desc">
+            Promotional visuals for events, campaigns, and marketing materials.
+          </p>
+          <h3 class="deliv-title">Core Deliverables</h3>
+          <ul class="package-deliverables">
+            <li>Event poster design</li>
+            <li>Event banner adaptation</li>
+            <li>Print & digital exports</li>
+            <li>High-resolution delivery</li>
+            <li>Source file optional</li>
+          </ul>
+        </div>
+        <div class="card-meta">
+          <span>Timeline: 3–5 Days</span>
+          <span>3 Revisions</span>
+        </div>
+      </div>
+
+      <!-- Card 5: Promotional Video Editing -->
+      <div class="package-card reveal">
+        <div>
+          <div class="card-header">
+            <h2 class="card-title">Promo Video Editing</h2>
+            <div class="price-col">
+              <span class="price-label">From</span>
+              <p class="price-tag">$120</p>
+            </div>
+          </div>
+          <p class="card-desc">
+            Short-form promotional videos crafted to communicate clearly and convert.
+          </p>
+          <h3 class="deliv-title">Core Deliverables</h3>
+          <ul class="package-deliverables">
+            <li>Editing & pacing</li>
+            <li>Text animation</li>
+            <li>Music & sound sync</li>
+            <li>Basic color correction</li>
+            <li>Export for social platforms</li>
+          </ul>
+        </div>
+        <div class="card-meta">
+          <span>Timeline: 3–7 Days</span>
+          <span>2 Revisions</span>
+        </div>
+      </div>
+
+      <!-- Card 6: Motion Graphics -->
+      <div class="package-card reveal">
+        <div>
+          <div class="card-header">
+            <h2 class="card-title">Motion Graphics</h2>
+            <div class="price-col">
+              <span class="price-label">Starting at</span>
+              <p class="price-tag">$170</p>
+            </div>
+          </div>
+          <p class="card-desc">
+            Animated visual content for advertisements, announcements, and digital campaigns.
+          </p>
+          <h3 class="deliv-title">Core Deliverables</h3>
+          <ul class="package-deliverables">
+            <li>Typography animation</li>
+            <li>Animated transitions</li>
+            <li>Motion assets</li>
+            <li>Up to 30 seconds included</li>
+            <li>Delivery in MP4</li>
+          </ul>
+        </div>
+        <div class="card-meta">
+          <span>Timeline: 4–7 Days</span>
+          <span>2 Revisions</span>
+        </div>
+      </div>
+
+      <!-- Card 7: Simple 3D Animation -->
+      <div class="package-card reveal">
+        <div>
+          <div class="card-header">
+            <h2 class="card-title">Simple 3D Animation</h2>
+            <div class="price-col">
+              <span class="price-label">From</span>
+              <p class="price-tag">$300</p>
+            </div>
+          </div>
+          <p class="card-desc">
+            Clean and modern 3D animation suitable for product showcases and visual storytelling.
+          </p>
+          <h3 class="deliv-title">Core Deliverables</h3>
+          <ul class="package-deliverables">
+            <li>Basic modeling (if needed)</li>
+            <li>Lighting & rendering</li>
+            <li>Animation up to 15 seconds</li>
+            <li>1080p export</li>
+            <li>Simple revisions</li>
+          </ul>
+        </div>
+        <div class="card-meta">
+          <span>Timeline: 5–10 Days</span>
+          <span>2 Revisions</span>
+        </div>
+      </div>
+
+      <!-- Card 8: Web Design -->
+      <div class="package-card reveal">
+        <div>
+          <div class="card-header">
+            <h2 class="card-title">Web Design</h2>
+            <div class="price-col">
+              <span class="price-label">Starting at</span>
+              <p class="price-tag">$400</p>
+            </div>
+          </div>
+          <p class="card-desc">
+            Modern and conversion-focused website designs for businesses and creators.
+          </p>
+          <h3 class="deliv-title">Core Deliverables</h3>
+          <ul class="package-deliverables">
+            <li>Desktop + mobile design</li>
+            <li>Wireframe & UI system</li>
+            <li>Figma delivery</li>
+            <li>Component structure</li>
+            <li>Developer handoff</li>
+          </ul>
+        </div>
+        <div class="card-meta">
+          <span>Timeline: 7–14 Days</span>
+          <span>3 Revisions</span>
+        </div>
+      </div>
+
+      <!-- Card 9: Presentation Slides -->
+      <div class="package-card reveal">
+        <div>
+          <div class="card-header">
+            <h2 class="card-title">Presentation Slides</h2>
+            <div class="price-col">
+              <span class="price-label">Starting at</span>
+              <p class="price-tag">$15</p>
+            </div>
+          </div>
+          <p class="card-desc">
+            Professional presentation design for business, education, and pitching.
+          </p>
+          <h3 class="deliv-title">Core Deliverables</h3>
+          <ul class="package-deliverables">
+            <li>Presentation redesign</li>
+            <li>Layout & visual consistency</li>
+            <li>Up to 10 slides included</li>
+            <li>Export PDF/PPT</li>
+            <li>Editable source</li>
+          </ul>
+        </div>
+        <div class="card-meta">
+          <span>Timeline: 2–5 Days</span>
+          <span>2 Revisions</span>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <!-- FAQ Section -->
+    <div class="faq-section reveal">
+      <h2 class="section-title">FAQ & POLICIES</h2>
+
+      <details class="faq-item">
+        <summary>How do pricing and payments work?</summary>
+        <div class="faq-content">
+          Projects start with a confirmed scope and deposit before production begins. A 50% upfront deposit is required
+          to secure your slot and kick off the work. The remaining balance is settled before final file delivery.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you accept custom requests?</summary>
+        <div class="faq-content">
+          Yes. Projects outside these packages are quoted separately. Reach out with your brief and I'll put together a
+          custom proposal tailored to your needs.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How many revisions are included?</summary>
+        <div class="faq-content">
+          Each package includes the revision rounds stated on its card. Additional rounds beyond the included limit can
+          be added via the Add-ons in the calculator above.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you provide source files?</summary>
+        <div class="faq-content">
+          Source files are available as an add-on unless otherwise specified in the package. When selected, originals
+          (PSD, AI, Figma, or .blend) are delivered alongside the final exports.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you provide development services?</summary>
+        <div class="faq-content">
+          Web development can be discussed separately. If you need frontend implementation of the web designs (HTML,
+          CSS, JS), we can expand the scope to include development deliverables.
+        </div>
+      </details>
+    </div>
+  </main>
+
+  <!-- Clean Minimal Footer -->
+  <footer>
+    <p>Made with 💚 by Anugerah</p>
+  </footer>
+
+
+  <script src="../src/magic-cursor.js"></script>
+  <script src="../src/reveal.js"></script>
+
+  <script>
+    (function () {
+
+      // Restructure each card's DOM so collapsible content sits in .card-collapsible
+      function wrapCollapsibleContent() {
+        document.querySelectorAll('.package-card').forEach(function (card) {
+          // Skip if already wrapped
+          if (card.querySelector('.card-collapsible')) return;
+
+          // The card structure is:
+          //   .package-card
+          //     div                   ← innerDiv
+          //       .card-header
+          //       p.card-desc
+          //       h3.deliv-title
+          //       ul.package-deliverables
+          //     .card-meta            ← direct child of .package-card
+
+          var innerDiv = card.querySelector('.card-header') && card.querySelector('.card-header').parentNode;
+          if (!innerDiv) return;
+
+          var header = innerDiv.querySelector('.card-header');
+          var meta = card.querySelector('.card-meta');
+
+          // Collect all innerDiv children that come AFTER .card-header
+          var wrapper = document.createElement('div');
+          wrapper.className = 'card-collapsible';
+
+          var collecting = false;
+          var toMove = [];
+          Array.from(innerDiv.children).forEach(function (el) {
+            if (collecting) toMove.push(el);
+            if (el === header) collecting = true;
+          });
+          toMove.forEach(function (el) { wrapper.appendChild(el); });
+
+          // Also pull .card-meta (direct child of .package-card) into the wrapper
+          if (meta) wrapper.appendChild(meta);
+
+          // Append wrapper inside innerDiv, after the header
+          innerDiv.appendChild(wrapper);
+        });
+      }
+
+      // Add chevron + click handler on mobile only
+      function initCollapsibleCards() {
+        if (window.innerWidth > 600) return;
+
+        document.querySelectorAll('.package-card').forEach(function (card) {
+          if (card.dataset.collapsible) return;
+          card.dataset.collapsible = 'true';
+
+          var header = card.querySelector('.card-header');
+          var body = card.querySelector('.card-collapsible');
+          if (!header || !body) return;
+
+          // Inject chevron
+          var chevron = document.createElement('span');
+          chevron.className = 'card-chevron';
+          chevron.setAttribute('aria-hidden', 'true');
+          chevron.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06z" clip-rule="evenodd" /></svg>';
+          header.appendChild(chevron);
+
+          header.addEventListener('click', function () {
+            card.classList.toggle('is-open');
+          });
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        wrapCollapsibleContent();
+        initCollapsibleCards();
+
+        // Disable scroll when mobile nav is open
+        var navToggle = document.getElementById('nav-toggle');
+        if (navToggle) {
+          navToggle.addEventListener('change', function () {
+            document.body.style.overflow = navToggle.checked ? 'hidden' : '';
+          });
+        }
+      });
+
+    })();
+  </script>
+</body>
+
+</html>
