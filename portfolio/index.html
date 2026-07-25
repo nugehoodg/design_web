@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="coffee">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8" />
@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/x-icon" href="../favicon.ico" />
-    <title>Anugerah | Graphic Designer & Front-end Developer Portfolio</title>
+    <title>Anugerah | Selected Works</title>
     <meta name="description"
         content="Portfolio of Anugerah, a passionate Graphic Designer, 3D Artist, and Front-end Developer with 8 years of experience creating visually compelling projects." />
 
@@ -18,7 +18,6 @@
     <meta property="og:description"
         content="Exploring the creative works of Anugerah, featuring Graphic Design, 3D Art, and Front-end Development." />
     <meta property="og:image" content="https://anugerah.vercel.app/img/OG_banner.png" />
-
     <meta property="og:logo" content="https://anugerah.vercel.app/favicon-32x32.png" />
 
     <!-- Twitter -->
@@ -31,6 +30,7 @@
     <meta property="twitter:image" content="https://anugerah.vercel.app/img/OG_banner.png" />
 
     <link rel="canonical" href="https://anugerah.vercel.app/" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="../src/output.css" rel="stylesheet" />
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.7/dist/htmx.min.js"
@@ -57,247 +57,546 @@
         "sameAs": ["https://github.com/nugehoodg"]
       }
     </script>
+
+    <style>
+        :root {
+            /* Deep eggplant-purple background */
+            --bg-dark:        #0e0a1a;
+            --bg-surface:     #160e2a;
+            --bg-card:        #1c1233;
+
+            --text-light:     #f5f0ff;
+            --text-muted:     #9b8ec4;
+
+            /* Warm amber-orange — sits opposite purple on the colour wheel */
+            --accent-color:   #f97316;   /* orange-500  */
+            --accent-hover:   #fb923c;   /* orange-400  */
+            --accent-glow:    rgba(249, 115, 22, 0.25);
+
+            /* Purple-tinted surfaces */
+            --surface-color:  rgba(130, 80, 255, 0.05);
+            --surface-border: rgba(130, 80, 255, 0.18);
+            --purple-mid:     #7c3aed;   /* violet-700  */
+        }
+        
+        body {
+            font-family: "Outfit", -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            overflow-x: clip; /* clip instead of hidden — doesn't create a scroll container, so position:sticky works */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar — purple-tinted glass */
+        .navbar { 
+            border-bottom: 1px solid var(--surface-border) !important; 
+            background: rgba(14, 10, 26, 0.85) !important; 
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            color: var(--text-light) !important;
+        }
+        .navbar a { color: var(--text-light) !important; }
+        /* Keep the spinning star icon orange */
+        .navbar svg path { fill: var(--accent-color) !important; }
+        /* DaisyUI badge links */
+        .navbar .badge {
+            border-color: var(--surface-border) !important;
+            color: var(--text-muted) !important;
+        }
+        .navbar .badge:hover {
+            background: var(--accent-color) !important;
+            border-color: var(--accent-color) !important;
+            color: #fff !important;
+        }
+        /* Mobile burger button — ensure text is white */
+        nav.navbar .btn,
+        nav.navbar summary.btn {
+            color: #ffffff !important;
+        }
+        
+        footer { 
+            border-top: 1px solid var(--surface-border) !important; 
+            background: var(--bg-dark) !important;
+            color: var(--text-muted) !important; 
+        }
+        footer svg path { fill: var(--text-muted) !important; transition: fill 0.3s; }
+        footer a:hover svg path { fill: var(--accent-color) !important; }
+
+        /* Hero Section */
+        .portfolio-hero {
+            padding: 120px 20px 80px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .hero-title {
+            font-size: clamp(3.5rem, 8vw, 5.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.25rem);
+            color: var(--text-muted);
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+        }
+        
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Filter Bar ───────────────────────────────────────── */
+        .filter-wrapper {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            padding: 0 16px;
+            background: transparent;
+            pointer-events: none;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.3s forwards;
+        }
+
+        /* The pill shell */
+        .filter-pill {
+            pointer-events: auto;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(14, 10, 26, 0.92);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--surface-border);
+            border-radius: 100px;
+            padding: 6px 8px 6px 6px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(130,80,255,0.15);
+        }
+
+        /* Orange "Filter" label badge */
+        .filter-label {
+            background: var(--accent-color);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.82rem;
+            letter-spacing: 0.04em;
+            padding: 7px 16px;
+            border-radius: 100px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 12px var(--accent-glow);
+        }
+
+        /* ── Desktop: inline buttons (shown ≥ 640 px) ── */
+        .filter-container {
+            display: none;
+            align-items: center;
+            gap: 2px;
+        }
+        @media (min-width: 640px) {
+            .filter-container { display: flex; }
+            .filter-burger     { display: none !important; }
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 7px 16px;
+            border-radius: 100px;
+            font-family: inherit;
+            font-weight: 500;
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .filter-btn:hover {
+            background: rgba(124, 58, 237, 0.2);
+            color: var(--text-light);
+        }
+        .filter-btn.active {
+            background: rgba(249, 115, 22, 0.15);
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        /* ── Mobile: burger (hidden ≥ 640 px) ── */
+        .filter-burger {
+            display: flex;
+            align-items: center;
+        }
+
+        .burger-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            border: none;
+            color: var(--text-light);
+            padding: 7px 14px;
+            border-radius: 100px;
+            font-family: inherit;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .burger-toggle:hover { color: var(--accent-color); }
+        .burger-toggle svg { transition: transform 0.3s ease; flex-shrink: 0; }
+        .burger-toggle.open svg:last-child { transform: rotate(180deg); }
+        .burger-active-label { max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+        /* Dropdown panel — opens upward */
+        .filter-dropdown {
+            position: absolute;
+            bottom: calc(100% + 12px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(14, 10, 26, 0.96);
+            border: 1px solid var(--surface-border);
+            border-radius: 20px;
+            padding: 10px;
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            z-index: 50;
+            min-width: 200px;
+            box-shadow: 0 -12px 40px rgba(0,0,0,0.5);
+            backdrop-filter: blur(24px);
+            pointer-events: auto;
+        }
+        .filter-dropdown.open { display: flex; }
+        .filter-dropdown .filter-btn {
+            text-align: left;
+            padding: 11px 16px;
+            border-radius: 12px;
+            width: 100%;
+        }
+        .filter-wrapper { position: relative; }
+
+        /* Masonry Grid */
+        .grid-container {
+            column-count: 2;
+            column-gap: 12px;
+            padding: 0 12px 180px; /* extra bottom padding clears the fixed filter pill */
+            max-width: 1600px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        @media (min-width: 640px)  { .grid-container { column-gap: 20px; padding-left: 20px; padding-right: 20px; } }
+        @media (min-width: 1024px) { .grid-container { column-count: 3; } }
+        @media (min-width: 1536px) { .grid-container { column-count: 4; } }
+
+        .project-card {
+            break-inside: avoid;
+            margin-bottom: 12px;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            background: var(--bg-card);
+            border: 1px solid var(--surface-border);
+            transform: translateY(30px);
+            opacity: 0;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+        
+        .project-card.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--accent-color);
+            border-color: var(--accent-color);
+            z-index: 10;
+        }
+
+        .project-card img, .project-card video {
+            width: 100%;
+            display: block;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            background: var(--bg-card);
+        }
+
+        .project-card:hover img, .project-card:hover video {
+            transform: scale(1.06);
+        }
+
+        /* Scroll To Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(14, 10, 26, 0.9);
+            border: 1px solid var(--surface-border);
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease, border-color 0.2s ease;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .scroll-to-top:hover {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            color: #fff;
+            box-shadow: 0 8px 24px var(--accent-glow);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: rgba(124, 58, 237, 0.4); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(124, 58, 237, 0.7); }
+        
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar p-7 sm:p-10 mx-auto border-b" hx-get="../navbar.html" hx-trigger="load" hx-target="this"></nav>
-    <div class="lg:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-20 dropdown dropdown-center dropdown-top">
-        <div tabindex="0" role="button" class="hover:badge-ghost rounded-2xl btn m-1 btn-primary shadow-lg">
-            Filter
+    <!-- Navbar -->
+    <nav class="navbar p-7 sm:p-10 mx-auto" hx-get="../navbar.html" hx-trigger="load" hx-target="this"></nav>
+
+    <!-- Hero Section -->
+    <header class="portfolio-hero">
+        <h1 class="hero-title">Selected Works</h1>
+        <p class="hero-subtitle">A curated collection of my best work across graphic design, 3D art, branding, and front-end development.</p>
+    </header>
+
+    <!-- Filter Bar — floating pill fixed at bottom -->
+    <div class="filter-wrapper">
+        <div class="filter-pill">
+            <!-- Orange "Filter" badge -->
+            <span class="filter-label">Filter</span>
+
+            <!-- Desktop: inline buttons -->
+            <nav class="filter-container" id="filters" aria-label="Filter projects by category">
+                <button class="filter-btn active" data-tag="all">All</button>
+                <button class="filter-btn" data-tag="poster">Poster</button>
+                <button class="filter-btn" data-tag="branding">Branding</button>
+                <button class="filter-btn" data-tag="app">App</button>
+                <button class="filter-btn" data-tag="website">Website</button>
+                <button class="filter-btn" data-tag="3d">3D</button>
+                <button class="filter-btn" data-tag="product">Product</button>
+            </nav>
+
+            <!-- Mobile: burger toggle -->
+            <div class="filter-burger" id="filter-burger">
+                <button class="burger-toggle" id="burger-toggle" aria-expanded="false" aria-controls="filter-dropdown">
+                    <span class="burger-active-label" id="burger-label">All</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                </button>
+            </div>
         </div>
-        <ul id="filter-mobile" tabindex="0"
-            class="items-center text-black dropdown-content menu bg-primary rounded-box z-1 p-2 shadow-sm">
-            <li>
-                <a href="#" data-tag="all" class="text-sm font-medium hover:text-secondary-content">All</a>
-            </li>
-            <li>
-                <a href="#" data-tag="poster" class="text-sm font-medium hover:text-secondary-content">Poster</a>
-            </li>
-            <li>
-                <a href="#" data-tag="branding" class="text-sm font-medium hover:text-secondary-content">Branding</a>
-            </li>
-            <li>
-                <a href="#" data-tag="app" class="text-sm font-medium hover:text-secondary-content">App</a>
-            </li>
-            <li>
-                <a href="#" data-tag="website" class="text-sm font-medium hover:text-secondary-content">Website</a>
-            </li>
-            <li>
-                <a href="#" data-tag="3d" class="text-sm font-medium hover:text-secondary-content">3D</a>
-            </li>
-            <li>
-                <a href="#" data-tag="product" class="text-sm font-medium hover:text-secondary-content">Product</a>
-            </li>
-        </ul>
+
+        <!-- Mobile dropdown (opens upward) -->
+        <div class="filter-dropdown" id="filter-dropdown" role="menu">
+            <button class="filter-btn active" data-tag="all">All</button>
+            <button class="filter-btn" data-tag="poster">Poster</button>
+            <button class="filter-btn" data-tag="branding">Branding</button>
+            <button class="filter-btn" data-tag="app">App</button>
+            <button class="filter-btn" data-tag="website">Website</button>
+            <button class="filter-btn" data-tag="3d">3D</button>
+            <button class="filter-btn" data-tag="product">Product</button>
+        </div>
     </div>
 
-    <nav id="filter"
-        class="lg:flex gap-6 hidden items-center text-black z-30 fixed bottom-4 left-1/2 -translate-x-1/2 bg-primary shadow-lg rounded-full px-4 py-2">
-        <div class="font-bold badge">Filter</div>
-        <a href="#" data-tag="all" class="tag-link text-sm font-medium hover:text-secondary-content">All</a>
-        <a href="#" data-tag="poster" class="tag-link text-sm font-medium hover:text-secondary-content">Poster</a>
-        <a href="#" data-tag="branding" class="tag-link text-sm font-medium hover:text-secondary-content">Branding</a>
-        <a href="#" data-tag="app" class="tag-link text-sm font-medium hover:text-secondary-content">App</a>
-        <a href="#" data-tag="website" class="tag-link text-sm font-medium hover:text-secondary-content">Website</a>
-        <a href="#" data-tag="3d" class="tag-link text-sm font-medium hover:text-secondary-content">3D</a>
-        <a href="#" data-tag="product" class="tag-link text-sm font-medium hover:text-secondary-content">Product</a>
-    </nav>
-
-    <div id="masonry" class="hidden lg:block columns-2 sm:columns-2 lg:columns-4 gap-4 p-4"></div>
-    <div id="masonry-mobile" class="block lg:hidden columns-2 sm:columns-2 lg:columns-4 gap-4 p-4"></div>
-
-
-
-    <footer class="flex justify-between p-5 border-t mt-10" hx-get="../footer.html" hx-trigger="load" hx-target="this">
-    </footer>
+    <!-- Masonry Grid -->
+    <main class="grid-container" id="grid"></main>
 
     <!-- Scroll to Top Button -->
-    <button id="scrollToTopBtn"
-        class="fixed bottom-20 right-6 z-50 btn btn-circle btn-primary shadow-xl opacity-0 invisible transition-all duration-300 translate-y-4">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+    <button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"/>
         </svg>
     </button>
 
-    <script>
-        const masonry = document.getElementById("masonry");
-        const masonryMobile = document.getElementById("masonry-mobile");
+    <!-- Footer -->
+    <footer class="flex justify-between p-5 mt-auto" hx-get="../footer.html" hx-trigger="load" hx-target="this">
+    </footer>
 
-        const filterLinks = document.querySelectorAll(
-            ".tag-link, #filter-mobile [data-tag]",
-        );
+    <script>
+        /* ── DOM refs ── */
+        const grid               = document.getElementById("grid");
+
+        /* Filter refs — both desktop pills (#filters) and mobile dropdown (#filter-dropdown) */
+        const desktopFilters  = document.getElementById("filters");
+        const dropdown        = document.getElementById("filter-dropdown");
+        const burgerToggle    = document.getElementById("burger-toggle");
+        const burgerLabel     = document.getElementById("burger-label");
+        const allFilterBtns   = () => document.querySelectorAll(".filter-btn"); // live query
 
         let allProjects = [];
-        let currentTag = "all";
+        let currentTag  = "all";
 
-        /* skeleton */
-        function skeletonCard(withHover = false) {
-            return `
-  <div class="mb-4 break-inside-avoid rounded-lg overflow-hidden shadow animate-pulse ${withHover ? "hover-3d" : ""}">
-    <div class="w-full aspect-video bg-base-300"></div>
-  </div>
-  `;
-        }
-
-        function showSkeleton() {
-            masonry.innerHTML = Array(8)
-                .fill(0)
-                .map(() => skeletonCard(true))
-                .join("");
-
-            masonryMobile.innerHTML = Array(6)
-                .fill(0)
-                .map(() => skeletonCard(false))
-                .join("");
-        }
-
-        /* media */
-        function renderMedia(p) {
-            if (p.video) {
-                return `
-    <video muted loop playsinline preload="none" class="w-full">
-      <source src="../${p.video}" type="video/mp4">
-    </video>
-    `;
-            }
-
-            return `
-  <img
-    src="../${p.image}"
-    alt="${p.title}"
-    loading="lazy"
-    class="w-full"
-  >
-  `;
-        }
-
-        /* card */
-        function projectCard(p, withHover = false) {
-            return `
-  <div class="mb-4 break-inside-avoid rounded-lg overflow-hidden shadow ${withHover ? "hover-3d" : ""}">
-
-    ${renderMedia(p)}
-
-
-  </div>
-  `;
-        }
-
-        /* render */
-        function renderProjects(projects) {
-            masonry.innerHTML = projects.map((p) => projectCard(p, true)).join("");
-
-            masonryMobile.innerHTML = projects
-                .map((p) => projectCard(p, false))
-                .join("");
-
-            playVisibleVideos();
-        }
-
-        /* filter */
-        function filterByTag(tag) {
-            if (tag === currentTag) return;
-
-            currentTag = tag;
-
-            if (tag === "all") {
-                renderProjects(allProjects);
-                return;
-            }
-
-            renderProjects(allProjects.filter((p) => p.tags?.includes(tag)));
-        }
-
-        /* active badge */
-        function setActive(link) {
-            filterLinks.forEach((l) => {
-                l.classList.remove("badge");
-                l.classList.add("text-black");
-            });
-
-            link.classList.add("badge");
-            link.classList.remove("text-black");
-        }
-
-        /* video optimization using IntersectionObserver */
-        const videoObserver = new IntersectionObserver((entries) => {
+        /* ── Intersection Observers ── */
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.play().catch(() => { });
-                } else {
-                    entry.target.pause();
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.1, rootMargin: '0px 0px 50px 0px' });
 
-        function playVisibleVideos() {
-            document.querySelectorAll("video").forEach((video) => {
-                videoObserver.observe(video);
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                entry.isIntersecting
+                    ? entry.target.play().catch(() => {})
+                    : entry.target.pause();
+            });
+        }, { threshold: 0.2 });
+
+        /* ── Burger menu ── */
+        burgerToggle.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const isOpen = dropdown.classList.toggle("open");
+            burgerToggle.classList.toggle("open", isOpen);
+            burgerToggle.setAttribute("aria-expanded", isOpen);
+        });
+
+        document.addEventListener("click", (e) => {
+            if (!dropdown.contains(e.target) && e.target !== burgerToggle) {
+                dropdown.classList.remove("open");
+                burgerToggle.classList.remove("open");
+                burgerToggle.setAttribute("aria-expanded", "false");
+            }
+        });
+
+        /* ── Cards ── */
+        function createProjectCard(p, index) {
+            const card = document.createElement("div");
+            card.className = "project-card";
+            card.style.transitionDelay = `${(index % 8) * 0.05}s`;
+            
+            const isVideo = !!p.video;
+            const mediaSrc = isVideo ? `../${p.video}` : `../${p.image}`;
+            
+            let mediaHTML = isVideo
+                ? `<video muted loop playsinline preload="none"><source src="${mediaSrc}" type="video/mp4"></video>`
+                : `<img src="${mediaSrc}" alt="${p.title || 'Project'}" loading="lazy">`;
+
+            card.innerHTML = mediaHTML;
+            return card;
+        }
+
+        function renderProjects(projects) {
+            grid.innerHTML = "";
+            projects.forEach((p, index) => {
+                const card = createProjectCard(p, index);
+                grid.appendChild(card);
+                revealObserver.observe(card);
+                if (p.video) {
+                    const vid = card.querySelector("video");
+                    if (vid) videoObserver.observe(vid);
+                }
             });
         }
 
-        /* load json */
-        async function loadProjects() {
-            showSkeleton();
+        /* ── Filter ── */
+        function filterProjects(tag, labelText) {
+            if (tag === currentTag) {
+                // Close dropdown on re-tap same item
+                dropdown.classList.remove("open");
+                burgerToggle.classList.remove("open");
+                return;
+            }
+            currentTag = tag;
 
+            /* Sync all buttons in both pill row and dropdown */
+            allFilterBtns().forEach(btn => {
+                btn.classList.toggle("active", btn.dataset.tag === tag);
+            });
+
+            /* Update burger label */
+            if (labelText) burgerLabel.textContent = labelText;
+
+            /* Close dropdown */
+            dropdown.classList.remove("open");
+            burgerToggle.classList.remove("open");
+            burgerToggle.setAttribute("aria-expanded", "false");
+
+            /* Render */
+            if (tag === "all") {
+                renderProjects(allProjects);
+            } else {
+                renderProjects(allProjects.filter(p => p.tags && p.tags.includes(tag)));
+            }
+        }
+
+        /* Wire ALL filter buttons (desktop + dropdown) via event delegation */
+        document.querySelectorAll(".filter-wrapper").forEach(wrapper => {
+            wrapper.addEventListener("click", (e) => {
+                const btn = e.target.closest(".filter-btn");
+                if (!btn) return;
+                filterProjects(btn.dataset.tag, btn.textContent.trim());
+            });
+        });
+
+        /* ── Scroll to top button ── */
+        const scrollToTopBtn = document.getElementById("scroll-to-top");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add("visible");
+            } else {
+                scrollToTopBtn.classList.remove("visible");
+            }
+        });
+        scrollToTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        /* ── Init ── */
+        async function init() {
             try {
                 const res = await fetch("../projects.json");
-
                 allProjects = await res.json();
-
                 renderProjects(allProjects);
             } catch (err) {
-                masonry.innerHTML = `<p class="text-error">Failed to load</p>`;
+                grid.innerHTML = `<p style="color:#f97316;text-align:center;padding:40px;">Failed to load projects.</p>`;
+                console.error(err);
             }
         }
 
-        /* events */
-        filterLinks.forEach((link) => {
-            link.addEventListener("click", (e) => {
-                e.preventDefault();
-
-                setActive(link);
-
-                filterByTag(link.dataset.tag);
-            });
-        });
-
-        window.addEventListener("scroll", handleScroll, { passive: true });
-
-        /* scroll to top logic */
-        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-
-        function handleScroll() {
-            // Check if user has reached near the bottom of the page (within 500px)
-            const isNearBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 500;
-
-            if (isNearBottom) {
-                scrollToTopBtn.classList.remove("invisible", "opacity-0", "translate-y-4");
-                scrollToTopBtn.classList.add("opacity-100", "translate-y-0");
-            } else {
-                scrollToTopBtn.classList.remove("opacity-100", "translate-y-0");
-                scrollToTopBtn.classList.add("opacity-0", "translate-y-4");
-                setTimeout(() => {
-                    if (scrollToTopBtn.classList.contains("opacity-0")) {
-                        scrollToTopBtn.classList.add("invisible");
-                    }
-                }, 300);
-            }
-        }
-
-        window.addEventListener("scroll", handleScroll);
-
-        scrollToTopBtn.addEventListener("click", () => {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        });
-
-        /* start */
-        loadProjects();
+        init();
     </script>
     <script src="../src/magic-cursor.js"></script>
 </body>
 
-</html>
+</html>
